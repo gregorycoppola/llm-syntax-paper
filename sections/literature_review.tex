@@ -5,6 +5,8 @@ Despite the rapid progress in language modeling, \citet{hu2020systematic} presen
 
 \subsection{POS Tagging and Shallow Syntax}
 
+A key development in standardized syntactic annotation came with \citet{petrov2012universal}'s introduction of a universal part-of-speech tagset, mapping diverse language-specific tag inventories to a shared 12-tag schema to support multilingual and cross-lingual syntactic processing. This standardization has been crucial for evaluating POS tagging performance across languages and models.
+
 \citet{blevins2023llmpos} examined GPT-3 and GPT-J models on POS tagging, NER, and chunking tasks. Few-shot prompting with GPT-J 6B reached 79\% accuracy for POS tagging, with GPT-3 (175B) scoring slightly lower. While this lags behind traditional supervised taggers (\textasciitilde96\%), it demonstrates the models' internalized syntactic knowledge.
 
 \citet{lai2023chatgptpos} used zero-shot prompting with ChatGPT across 17 languages. Using prompts in either English or the target language, they achieved average POS accuracy of 84--85\%, outperforming fine-tuned XLM-R in most languages.
