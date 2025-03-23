@@ -25,7 +25,7 @@ Experimental results on the FLORES-101 Chinese--English corpus show a strong cor
 
 \subsection{Dependency Parsing}
 
-While constituency parsing has shown promising results with LLMs, dependency parsing remains a challenging task. Current approaches often require fine-tuning or specialized prompting strategies to achieve competitive performance.
+While constituency parsing has shown promising results with LLMs, dependency parsing remains a challenging task. Current approaches often require fine-tuning or specialized prompting strategies to achieve competitive performance. A notable exception is \citet{hromei2024udeppllama}'s U-DepPLLaMA, which reframes dependency parsing as a sequence-to-sequence task, where the model learns to generate bracketed representations of dependency trees directly from raw sentences. Despite the absence of task-specific architecture, U-DepPLLaMA achieves competitive performance across 50 Universal Dependencies treebanks in 26 languages, and shows robustness to sentence length and complexity. This work demonstrates that autoregressive LLMs can learn structured syntactic representations purely through fine-tuning.
 
 \subsection{Summary of Methods and Trends}
 
@@ -41,6 +41,7 @@ Machado \& Ruiz (2024) & GPT-3 & POS (PT-BR) & Few-shot & 90\% POS accuracy \\
 Jiao et al. (2024) & ChatGPT & Translation & T3S Taxonomy & Level 4 prompts beat GPT-4 baseline \\
 Bai et al. (2023) & GPT-4, LLaMA & Constituency & Few-shot & GPT-4: 73 F1; LLaMA: $<$30 F1 \\
 Tian et al. (2024) & GPT-4, GPT-3.5 & Constituency & Chunk + CoT & Improved tree depth and quality \\
+Hromei et al. (2024) & U-DepPLLaMA & Dependency & Fine-tuned & Competitive on 50 UD treebanks \\
 \bottomrule
 \end{tabular}
 \caption{LLMs for syntactic annotation: task, model, method, and performance summary.}
