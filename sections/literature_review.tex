@@ -9,6 +9,8 @@ Recent work has explored the ability of large language models (LLMs) to serve as
 
 \citet{machado2024portpos} evaluated GPT-3, LLaMA-7B, and a Brazilian Portuguese LLM on POS tagging. With 10-shot prompts, GPT-3 achieved 90\% accuracy, significantly outperforming the smaller models.
 
+\citet{jiao2024gradable} introduced a novel approach to evaluating LLM outputs using gradable criteria, demonstrating how ChatGPT can provide nuanced assessments of linguistic quality. Their work suggests that LLMs can not only perform linguistic tasks but also evaluate them with human-like granularity.
+
 \subsection{Constituency Parsing}
 
 \citet{bai2023llmconst} tested GPT-3.5, GPT-4, and LLaMA models on English constituency parsing. GPT-4 achieved an F1 of 73 with five-shot prompting, while open-weight LLaMA models scored below 30 F1.
@@ -32,6 +34,7 @@ Conversely, \citet{dubey2025zeroshotdep} found that most LLMs failed in zero-sho
 Blevins et al. (2023) & GPT-3, GPT-J & POS, Chunk & Few-shot & Up to 79\% POS (GPT-J); below SOTA \\
 Lai et al. (2023) & ChatGPT & POS (UD) & Zero-shot & Avg. 85\% accuracy (17 langs) \\
 Machado \& Ruiz (2024) & GPT-3 & POS (PT-BR) & Few-shot & 90\% POS accuracy \\
+Jiao et al. (2024) & ChatGPT & Evaluation & Gradable & Novel evaluation framework \\
 Bai et al. (2023) & GPT-4, LLaMA & Constituency & Few-shot & GPT-4: 73 F1; LLaMA: $<$30 F1 \\
 Tian et al. (2024) & GPT-4, GPT-3.5 & Constituency & Chunk + CoT & Improved tree depth and quality \\
 Hromei et al. (2024) & LLaMA-2 (13B) & Dependency & Fine-tuned & 93--94\% UAS (26 langs) \\
