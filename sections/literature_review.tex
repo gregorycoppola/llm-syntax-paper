@@ -23,6 +23,12 @@ Experimental results on the FLORES-101 Chinese--English corpus show a strong cor
 
 \citet{tian2024chunkprompt} introduced a chunk-then-parse prompting approach using chain-of-thought (CoT) reasoning. This improved GPT-4's parsing quality on English and Chinese datasets, recovering deeper tree structures.
 
+\subsection{The CoNLL Task and Format}
+
+The CoNLL shared tasks have been central to advancing dependency parsing research, establishing standardized formats and evaluation frameworks. The original CoNLL-X shared task \citep{buchholz2006conll} introduced multilingual dependency treebanks in a standardized format, marking a major milestone in the field. This was followed by the CoNLL 2007 shared task \citep{nivre2007conll}, which expanded the language coverage and improved annotation consistency.
+
+The modern Universal Dependencies (UD) project \citep{nivre2016universal} represents the current state of the art in dependency treebank development. UD provides a consistent annotation scheme across languages using the CoNLL-U format, which extends the original CoNLL format with additional features like morphological attributes and enhanced dependencies. This standardized format has become the de facto standard for evaluating dependency parsers, including recent work with LLMs.
+
 \subsection{Dependency Parsing}
 
 While constituency parsing has shown promising results with LLMs, dependency parsing remains a challenging task. Current approaches often require fine-tuning or specialized prompting strategies to achieve competitive performance. A notable exception is \citet{hromei2024udeppllama}'s U-DepPLLaMA, which reframes dependency parsing as a sequence-to-sequence task, where the model learns to generate bracketed representations of dependency trees directly from raw sentences. Despite the absence of task-specific architecture, U-DepPLLaMA achieves competitive performance across 50 Universal Dependencies treebanks in 26 languages, and shows robustness to sentence length and complexity. This work demonstrates that autoregressive LLMs can learn structured syntactic representations purely through fine-tuning.
