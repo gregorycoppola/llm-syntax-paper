@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{titlesec}
+
+\geometry{margin=1in}
+
+\title{Title of Your Paper}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\input{abstract}
+
+\section{Research Question}
+\input{sections/research_question}
+
+\section{Motivation}
+\input{sections/motivation}
+
+\section{Background}
+\input{sections/background}
+
+\section{Parsing to CoNLL Directly (Negative Result)}
+\input{sections/parsing_to_conll}
+
+\section{Qualitative Case Study Indicates ChatGPT Can Act as a Linguist}
+\input{sections/chatgpt_as_linguist}
+
+\section{Quantitative Experiments}
+\input{sections/quantitative_experiments}
+
+\section{Conclusion}
+\input{sections/conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document} 
