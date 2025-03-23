@@ -60,29 +60,3 @@ Recent research has explored the potential for large language models (LLMs), suc
 Their findings indicate that ChatGPT exhibits some emergent syntactic awareness, and can produce partially valid dependency parses for English and Chinese. However, its performance remains far below that of supervised parsers, with LAS scores of only 28.61 on PTB and 11.93 on CTB5. Furthermore, outputs often require extensive post-processing due to format inconsistencies, token omissions, or labeling errors. Other LLMs (e.g., Vicuna, HuggingChat) fail to generate valid output even when given one-shot examples.
 
 Thus, while ChatGPT shows promise in demonstrating linguistic generalization, it does not function as a reliable one-shot dependency parser. Instead, it reflects an early-stage capability that may support downstream linguistic analysis rather than robust structured prediction.
-
-\subsection{Summary of Methods and Trends}
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{p{3.3cm} p{2cm} p{2cm} p{2.5cm} p{3.5cm}}
-\toprule
-\textbf{Study} & \textbf{Model} & \textbf{Task} & \textbf{Method} & \textbf{Result / Remark} \\
-\midrule
-Blevins et al. (2023) & GPT-3, GPT-J & POS, Chunk & Few-shot & Up to 79\% POS (GPT-J); below SOTA \\
-Lai et al. (2023) & ChatGPT & POS (UD) & Zero-shot & Avg. 85\% accuracy (17 langs) \\
-Machado \& Ruiz (2024) & GPT-3 & POS (PT-BR) & Few-shot & 90\% POS accuracy \\
-Jiao et al. (2024) & ChatGPT & Translation & T3S Taxonomy & Level 4 prompts beat GPT-4 baseline \\
-Bai et al. (2023) & GPT-4, LLaMA & Constituency & Few-shot & GPT-4: 73 F1; LLaMA: $<$30 F1 \\
-Tian et al. (2024) & GPT-4, GPT-3.5 & Constituency & Chunk + CoT & Improved tree depth and quality \\
-Hromei et al. (2024) & U-DepPLLaMA & Dependency & Fine-tuned & Competitive on 50 UD treebanks \\
-Lin et al. (2023) & ChatGPT & Dependency & Zero-shot & 28.61 LAS (PTB), 11.93 LAS (CTB5) \\
-\bottomrule
-\end{tabular}
-\caption{LLMs for syntactic annotation: task, model, method, and performance summary.}
-\label{tab:llm_syntax}
-\end{table}
-
-These studies demonstrate that LLMs can approximate human-level syntactic annotation, particularly for POS tagging. However, performance in parsing (especially full dependency trees) remains variable without fine-tuning. Prompt design, instruction tuning, and model scale all contribute to improved results, and multilingual evaluation remains a critical benchmark for future progress.
-
-
