@@ -53,6 +53,8 @@ This rich history of semantic parsing research provides important context for un
 
 While constituency parsing has shown promising results with LLMs, dependency parsing remains a challenging task. Current approaches often require fine-tuning or specialized prompting strategies to achieve competitive performance. A notable exception is \citet{hromei2024udeppllama}'s U-DepPLLaMA, which reframes dependency parsing as a sequence-to-sequence task, where the model learns to generate bracketed representations of dependency trees directly from raw sentences. Despite the absence of task-specific architecture, U-DepPLLaMA achieves competitive performance across 50 Universal Dependencies treebanks in 26 languages, and shows robustness to sentence length and complexity. This work demonstrates that autoregressive LLMs can learn structured syntactic representations purely through fine-tuning.
 
+The challenge of multilingual dependency parsing has been a longstanding focus of research. \citet{mcdonald2011multi} demonstrated that delexicalized dependency parsers could be effectively transferred across languages, showing that syntactic structure could be learned independently of lexical content. This insight has influenced modern approaches to cross-lingual parsing, including recent work with LLMs.
+
 \subsection{Zero-Shot Dependency Parsing}
 
 Recent research has explored the potential for large language models (LLMs), such as ChatGPT, to perform dependency parsing in a zero-shot setting. While traditional approaches rely on task-specific architectures and supervised training, \citet{lin2023chatgpt} investigate whether ChatGPT can generate syntactic dependency trees when prompted directly in CoNLL format.
