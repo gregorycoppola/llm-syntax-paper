@@ -7,12 +7,6 @@ However, despite these advances, fundamental questions remain about the linguist
 
 A key development in standardized syntactic annotation came with \citet{petrov2012universal}'s introduction of a universal part-of-speech tagset, mapping diverse language-specific tag inventories to a shared 12-tag schema to support multilingual and cross-lingual syntactic processing. This standardization has been crucial for evaluating POS tagging performance across languages and models.
 
-\citet{blevins2023llmpos} examined GPT-3 and GPT-J models on POS tagging, NER, and chunking tasks. Few-shot prompting with GPT-J 6B reached 79\% accuracy for POS tagging, with GPT-3 (175B) scoring slightly lower. While this lags behind traditional supervised taggers (~96\%), it demonstrates the models' internalized syntactic knowledge.
-
-\citet{lai2023chatgptpos} used zero-shot prompting with ChatGPT across 17 languages. Using prompts in either English or the target language, they achieved average POS accuracy of 84--85\%, outperforming fine-tuned XLM-R in most languages.
-
-\citet{machado2024portpos} evaluated GPT-3, LLaMA-7B, and a Brazilian Portuguese LLM on POS tagging. With 10-shot prompts, GPT-3 achieved 90\% accuracy, significantly outperforming the smaller models.
-
 \subsection{Dependency Parsing}
 
 Moving from shallow to deep syntax, dependency parsing remains a more challenging task for LLMs. Traditional approaches rely heavily on supervised learning and task-specific architectures. However, \citet{hromei2024udeppllama}'s U-DepPLLaMA reframes dependency parsing as a sequence-to-sequence task, where the model learns to generate bracketed representations of dependency trees directly from raw sentences. Without relying on task-specific architecture, U-DepPLLaMA achieves competitive performance across 50 Universal Dependencies treebanks in 26 languages, demonstrating that autoregressive LLMs can internalize structured syntactic representations through fine-tuning.
