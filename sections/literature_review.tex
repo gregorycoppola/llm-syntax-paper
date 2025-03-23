@@ -9,7 +9,13 @@ Recent work has explored the ability of large language models (LLMs) to serve as
 
 \citet{machado2024portpos} evaluated GPT-3, LLaMA-7B, and a Brazilian Portuguese LLM on POS tagging. With 10-shot prompts, GPT-3 achieved 90\% accuracy, significantly outperforming the smaller models.
 
-\citet{jiao2024gradable} introduced a novel approach to evaluating LLM outputs using gradable criteria, demonstrating how ChatGPT can provide nuanced assessments of linguistic quality. Their work suggests that LLMs can not only perform linguistic tasks but also evaluate them with human-like granularity.
+\subsection{Agentic Prompting for Translation Tasks}
+
+Building on a growing body of work that explores large language models (LLMs) as agentic linguistic annotators \citep[e.g.,][]{lai2023chatgptpos, blevins2023llmpos}, \citet{jiao2024gradable} investigate the extent to which LLMs can behave as adaptive agents in machine translation tasks. Rather than retraining or fine-tuning models, their approach leverages prompt engineering to steer ChatGPT's translation outputs across a continuum of linguistic complexity and context awareness.
+
+They introduce the \textbf{T3S taxonomy}, which categorizes translation prompts into five levels of increasing detail and linguistic guidance. The dimensions of this taxonomy—expression type, translation style, part-of-speech (POS) information, and few-shot examples—mirror the types of scaffolding used in syntactic annotation tasks. At higher levels (e.g., Level 4), prompts ask ChatGPT to revise and proofread its own output, encouraging self-monitoring behavior akin to agentic reasoning.
+
+Experimental results on the FLORES-101 Chinese--English corpus show a strong correlation between prompt complexity and translation quality, as measured by BLEU, ROUGE, and human evaluation. Notably, Level 4 prompts outperform even GPT-4's zero-shot baseline. These findings suggest that translation quality can be significantly improved through carefully structured, linguistically informed prompts—demonstrating the capacity of LLMs to act as agentic language processors even in high-level tasks like translation.
 
 \subsection{Constituency Parsing}
 
@@ -34,7 +40,7 @@ Conversely, \citet{dubey2025zeroshotdep} found that most LLMs failed in zero-sho
 Blevins et al. (2023) & GPT-3, GPT-J & POS, Chunk & Few-shot & Up to 79\% POS (GPT-J); below SOTA \\
 Lai et al. (2023) & ChatGPT & POS (UD) & Zero-shot & Avg. 85\% accuracy (17 langs) \\
 Machado \& Ruiz (2024) & GPT-3 & POS (PT-BR) & Few-shot & 90\% POS accuracy \\
-Jiao et al. (2024) & ChatGPT & Evaluation & Gradable & Novel evaluation framework \\
+Jiao et al. (2024) & ChatGPT & Translation & T3S Taxonomy & Level 4 prompts beat GPT-4 baseline \\
 Bai et al. (2023) & GPT-4, LLaMA & Constituency & Few-shot & GPT-4: 73 F1; LLaMA: $<$30 F1 \\
 Tian et al. (2024) & GPT-4, GPT-3.5 & Constituency & Chunk + CoT & Improved tree depth and quality \\
 Hromei et al. (2024) & LLaMA-2 (13B) & Dependency & Fine-tuned & 93--94\% UAS (26 langs) \\
