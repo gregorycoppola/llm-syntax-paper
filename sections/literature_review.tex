@@ -27,6 +27,14 @@ Experimental results on the FLORES-101 Chinese--English corpus show a strong cor
 
 While constituency parsing has shown promising results with LLMs, dependency parsing remains a challenging task. Current approaches often require fine-tuning or specialized prompting strategies to achieve competitive performance. A notable exception is \citet{hromei2024udeppllama}'s U-DepPLLaMA, which reframes dependency parsing as a sequence-to-sequence task, where the model learns to generate bracketed representations of dependency trees directly from raw sentences. Despite the absence of task-specific architecture, U-DepPLLaMA achieves competitive performance across 50 Universal Dependencies treebanks in 26 languages, and shows robustness to sentence length and complexity. This work demonstrates that autoregressive LLMs can learn structured syntactic representations purely through fine-tuning.
 
+\subsection{Zero-Shot Dependency Parsing}
+
+Recent research has explored the potential for large language models (LLMs), such as ChatGPT, to perform dependency parsing in a zero-shot setting. While traditional approaches rely on task-specific architectures and supervised training, \citet{lin2023chatgpt} investigate whether ChatGPT can generate syntactic dependency trees when prompted directly in CoNLL format.
+
+Their findings indicate that ChatGPT exhibits some emergent syntactic awareness, and can produce partially valid dependency parses for English and Chinese. However, its performance remains far below that of supervised parsers, with LAS scores of only 28.61 on PTB and 11.93 on CTB5. Furthermore, outputs often require extensive post-processing due to format inconsistencies, token omissions, or labeling errors. Other LLMs (e.g., Vicuna, HuggingChat) fail to generate valid output even when given one-shot examples.
+
+Thus, while ChatGPT shows promise in demonstrating linguistic generalization, it does not function as a reliable one-shot dependency parser. Instead, it reflects an early-stage capability that may support downstream linguistic analysis rather than robust structured prediction.
+
 \subsection{Summary of Methods and Trends}
 
 \begin{table}[ht]
@@ -42,6 +50,7 @@ Jiao et al. (2024) & ChatGPT & Translation & T3S Taxonomy & Level 4 prompts beat
 Bai et al. (2023) & GPT-4, LLaMA & Constituency & Few-shot & GPT-4: 73 F1; LLaMA: $<$30 F1 \\
 Tian et al. (2024) & GPT-4, GPT-3.5 & Constituency & Chunk + CoT & Improved tree depth and quality \\
 Hromei et al. (2024) & U-DepPLLaMA & Dependency & Fine-tuned & Competitive on 50 UD treebanks \\
+Lin et al. (2023) & ChatGPT & Dependency & Zero-shot & 28.61 LAS (PTB), 11.93 LAS (CTB5) \\
 \bottomrule
 \end{tabular}
 \caption{LLMs for syntactic annotation: task, model, method, and performance summary.}
