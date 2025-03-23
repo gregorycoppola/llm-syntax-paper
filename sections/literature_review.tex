@@ -3,11 +3,11 @@ Recent work has explored the ability of large language models (LLMs) to serve as
 
 \subsection{POS Tagging and Shallow Syntax}
 
-\citet{blevins2023llmpos} examined GPT-3 and GPT-J models on POS tagging, NER, and chunking tasks. Few-shot prompting with GPT-J 6B reached 79% accuracy for POS tagging, with GPT-3 (175B) scoring slightly lower. While this lags behind traditional supervised taggers (\textasciitilde96%), it demonstrates the models' internalized syntactic knowledge.
+\citet{blevins2023llmpos} examined GPT-3 and GPT-J models on POS tagging, NER, and chunking tasks. Few-shot prompting with GPT-J 6B reached 79\% accuracy for POS tagging, with GPT-3 (175B) scoring slightly lower. While this lags behind traditional supervised taggers (\textasciitilde96\%), it demonstrates the models' internalized syntactic knowledge.
 
-\citet{lai2023chatgptpos} used zero-shot prompting with ChatGPT across 17 languages. Using prompts in either English or the target language, they achieved average POS accuracy of 84--85%, outperforming fine-tuned XLM-R in most languages.
+\citet{lai2023chatgptpos} used zero-shot prompting with ChatGPT across 17 languages. Using prompts in either English or the target language, they achieved average POS accuracy of 84--85\%, outperforming fine-tuned XLM-R in most languages.
 
-\citet{machado2024portpos} evaluated GPT-3, LLaMA-7B, and a Brazilian Portuguese LLM on POS tagging. With 10-shot prompts, GPT-3 achieved 90% accuracy, significantly outperforming the smaller models.
+\citet{machado2024portpos} evaluated GPT-3, LLaMA-7B, and a Brazilian Portuguese LLM on POS tagging. With 10-shot prompts, GPT-3 achieved 90\% accuracy, significantly outperforming the smaller models.
 
 \subsection{Constituency Parsing}
 
@@ -17,13 +17,30 @@ Recent work has explored the ability of large language models (LLMs) to serve as
 
 \subsection{Dependency Parsing}
 
-\citet{hromei2024udllama} fine-tuned LLaMA-2 models on UD data across 26 languages. Their 13B model achieved \textasciitilde93--94% UAS, rivaling traditional biaffine parsers. Even the 7B model performed competitively.
+\citet{hromei2024udllama} fine-tuned LLaMA-2 models on UD data across 26 languages. Their 13B model achieved \textasciitilde93--94\% UAS, rivaling traditional biaffine parsers. Even the 7B model performed competitively.
 
 Conversely, \citet{dubey2025zeroshotdep} found that most LLMs failed in zero-shot dependency parsing. Only LLaMA-70B marginally outperformed trivial baselines such as left-branching.
 
 \subsection{Summary of Methods and Trends}
 
-\begin{table}[ht] \centering \begin{tabular}{p{3.3cm} p{2cm} p{2cm} p{2.5cm} p{3.5cm}} \toprule \textbf{Study} & \textbf{Model} & \textbf{Task} & \textbf{Method} & \textbf{Result / Remark} \ \midrule Blevins et al. (2023) & GPT-3, GPT-J & POS, Chunk & Few-shot & Up to 79% POS (GPT-J); below SOTA \ Lai et al. (2023) & ChatGPT & POS (UD) & Zero-shot & Avg. 85% accuracy (17 langs) \ Machado & Ruiz (2024) & GPT-3 & POS (PT-BR) & Few-shot & 90% POS accuracy \ Bai et al. (2023) & GPT-4, LLaMA & Constituency & Few-shot & GPT-4: 73 F1; LLaMA: \textless30 F1 \ Tian et al. (2024) & GPT-4, GPT-3.5 & Constituency & Chunk + CoT & Improved tree depth and quality \ Hromei et al. (2024) & LLaMA-2 (13B) & Dependency & Fine-tuned & 93--94% UAS (26 langs) \ Dubey et al. (2025) & GPT-4, LLaMA-70B & Dependency & Zero-shot & Often \textless baseline \ \bottomrule \end{tabular} \caption{LLMs for syntactic annotation: task, model, method, and performance summary.} \label{tab:llm_syntax} \end{table}
+\begin{table}[ht]
+\centering
+\begin{tabular}{p{3.3cm} p{2cm} p{2cm} p{2.5cm} p{3.5cm}}
+\toprule
+\textbf{Study} & \textbf{Model} & \textbf{Task} & \textbf{Method} & \textbf{Result / Remark} \\
+\midrule
+Blevins et al. (2023) & GPT-3, GPT-J & POS, Chunk & Few-shot & Up to 79\% POS (GPT-J); below SOTA \\
+Lai et al. (2023) & ChatGPT & POS (UD) & Zero-shot & Avg. 85\% accuracy (17 langs) \\
+Machado \& Ruiz (2024) & GPT-3 & POS (PT-BR) & Few-shot & 90\% POS accuracy \\
+Bai et al. (2023) & GPT-4, LLaMA & Constituency & Few-shot & GPT-4: 73 F1; LLaMA: $<$30 F1 \\
+Tian et al. (2024) & GPT-4, GPT-3.5 & Constituency & Chunk + CoT & Improved tree depth and quality \\
+Hromei et al. (2024) & LLaMA-2 (13B) & Dependency & Fine-tuned & 93--94\% UAS (26 langs) \\
+Dubey et al. (2025) & GPT-4, LLaMA-70B & Dependency & Zero-shot & Often $<$ baseline \\
+\bottomrule
+\end{tabular}
+\caption{LLMs for syntactic annotation: task, model, method, and performance summary.}
+\label{tab:llm_syntax}
+\end{table}
 
 These studies demonstrate that LLMs can approximate human-level syntactic annotation, particularly for POS tagging. However, performance in parsing (especially full dependency trees) remains variable without fine-tuning. Prompt design, instruction tuning, and model scale all contribute to improved results, and multilingual evaluation remains a critical benchmark for future progress.
 
