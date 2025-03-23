@@ -27,8 +27,6 @@ Experimental results on the FLORES-101 Chinese--English corpus show a strong cor
 
 \citet{hromei2024udllama} fine-tuned LLaMA-2 models on UD data across 26 languages. Their 13B model achieved \textasciitilde93--94\% UAS, rivaling traditional biaffine parsers. Even the 7B model performed competitively.
 
-Conversely, \citet{dubey2025zeroshotdep} found that most LLMs failed in zero-shot dependency parsing. Only LLaMA-70B marginally outperformed trivial baselines such as left-branching.
-
 \subsection{Summary of Methods and Trends}
 
 \begin{table}[ht]
@@ -44,7 +42,6 @@ Jiao et al. (2024) & ChatGPT & Translation & T3S Taxonomy & Level 4 prompts beat
 Bai et al. (2023) & GPT-4, LLaMA & Constituency & Few-shot & GPT-4: 73 F1; LLaMA: $<$30 F1 \\
 Tian et al. (2024) & GPT-4, GPT-3.5 & Constituency & Chunk + CoT & Improved tree depth and quality \\
 Hromei et al. (2024) & LLaMA-2 (13B) & Dependency & Fine-tuned & 93--94\% UAS (26 langs) \\
-Dubey et al. (2025) & GPT-4, LLaMA-70B & Dependency & Zero-shot & Often $<$ baseline \\
 \bottomrule
 \end{tabular}
 \caption{LLMs for syntactic annotation: task, model, method, and performance summary.}
