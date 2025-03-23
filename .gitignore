@@ -1,0 +1,50 @@
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.dvi
+*.pdf
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+
+# LaTeX editor files
+*.bak
+*.swp
+*~
+
+# macOS system files
+.DS_Store
+
+# LaTeX build directories
+build/
+out/
+
+# LaTeX temporary files
+*.tmp
+*.temp
+*.temp.*
+
+# LaTeX bibliography auxiliary files
+*.bcf
+*.run.xml
+
+# LaTeX glossaries
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.slg
+*.slo
+*.sls 
