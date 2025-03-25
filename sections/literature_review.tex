@@ -35,6 +35,12 @@ Later work moved toward weak supervision. \citet{clarke2010} learned from questi
 
 This body of work underscores how structured syntax informs compositional semantics, laying the groundwork for evaluating how LLMs internalize both levels of linguistic structure.
 
+Recent work has further explored LLMs' capabilities in semantic parsing. \citet{liu2023llm} investigate the zero-shot capabilities of GPT-3.5 and GPT-4 in semantic parsing tasks, including Text-to-SQL and AMR parsing. They find that while both models show strong performance in zero-shot scenarios, GPT-4 significantly outperforms GPT-3.5, particularly in complex parsing tasks. Their work highlights the importance of model scale and architecture in achieving robust semantic parsing capabilities.
+
+\citet{sun-etal-2023-battle} conduct a comprehensive comparison of six prominent LLMs (Dolly, LLaMA, Vicuna, Guanaco, Bard, and ChatGPT) in Text-to-SQL parsing across nine benchmark datasets. Their systematic evaluation using five different prompting strategies reveals that while open-source models have made significant progress through instruction-tuning, they still lag behind closed-source models like GPT-3.5. This finding underscores the ongoing challenges in developing open-source alternatives that can match the performance of commercial LLMs in complex parsing tasks.
+
+\citet{liu2023llm} also examine the impact of different prompting strategies on parsing performance, finding that structured prompts that explicitly guide the model through the parsing process tend to yield better results than simple task descriptions. They also investigate the role of in-context learning, showing that carefully selected examples can significantly improve parsing accuracy, particularly for complex queries.
+
 \paragraph{Conclusion.}
 Taken together, these studies highlight the expanding capacity of LLMs to perform syntactic and semantic analysis across languages and tasks. From POS tagging to deep compositional semantics, LLMs increasingly demonstrate internalized linguistic structure. Yet consistent challenges in structured prediction—especially for multilingual and zero-shot scenarios—indicate that traditional parsing insights remain essential. This review sets the stage for our own investigation into [insert your focus here], which further explores the interface between LLM prompting, structure induction, and linguistic generalization.
 
