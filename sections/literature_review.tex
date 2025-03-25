@@ -43,11 +43,29 @@ Finally, Mrini et al. \cite{mrini2020rethinking} revisited the design of transfo
 These papers collectively chart the field’s evolution from hand-crafted symbolic systems to flexible, data-driven, and multilingual parsing solutions. Each advance reflects broader methodological shifts in NLP and has influenced not only syntactic parsing but also downstream tasks like machine translation, information extraction, and question answering.
 
 
-\subsection{Dependency Parsing}
+\subsection{Historical Milestones in Statistical Dependency Parsing}
 
-Moving from shallow to deep syntax, dependency parsing remains a more challenging task for LLMs. Traditional approaches rely heavily on supervised learning and task-specific architectures. However, \citet{hromei2024udeppllama}'s U-DepPLLaMA reframes dependency parsing as a sequence-to-sequence task, where the model learns to generate bracketed representations of dependency trees directly from raw sentences. Without relying on task-specific architecture, U-DepPLLaMA achieves competitive performance across 50 Universal Dependencies treebanks in 26 languages, demonstrating that autoregressive LLMs can internalize structured syntactic representations through fine-tuning.
+Dependency parsing aims to identify syntactic relationships between words in a sentence, typically in the form of directed, labeled graphs where each word depends on a syntactic head. Compared to phrase structure parsing, dependency representations are often more suitable for morphologically rich and free word order languages, making them a popular choice in multilingual and applied NLP tasks. Over the past few decades, the field has undergone major methodological shifts—moving from rule-based systems to machine learning and, more recently, to deep learning and multilingual pretrained models. This subsection outlines ten influential works that have shaped the trajectory of statistical dependency parsing.
 
-The challenge of multilingual dependency parsing has been a longstanding focus of research. \citet{mcdonald2011multi} demonstrated that delexicalized dependency parsers could be effectively transferred across languages, showing that syntactic structure could be learned independently of lexical content. This insight has influenced modern approaches to cross-lingual parsing, including recent work with LLMs.
+The theoretical foundation of dependency parsing can be traced back to Mel’čuk’s seminal work on dependency syntax \cite{melcuk1988dependency}, which formalized the representation of syntactic relations in a way that was both linguistically expressive and computationally viable. Although primarily theoretical, Mel’čuk’s framework laid the groundwork for many subsequent parsing systems.
+
+A practical breakthrough came with Yamada and Matsumoto’s data-driven transition-based parser \cite{yamada2003statistical}, which modeled parsing as a sequence of decisions made by a classifier—specifically a support vector machine. Their approach pioneered the use of machine learning in dependency parsing and inspired a generation of transition-based parsers.
+
+In contrast, McDonald et al. introduced a graph-based alternative to dependency parsing \cite{mcdonald2005online}, treating the task as finding the maximum spanning tree over possible head-dependent arcs. This approach, trained with a structured perceptron, offered global optimization and quickly became a strong baseline. McDonald and Pereira \cite{mcdonald2006online} extended this work by incorporating higher-order features such as sibling and grandparent relationships, thereby improving parsing accuracy while maintaining tractability.
+
+Concurrently, Nivre and colleagues released MaltParser \cite{nivre2006maltparser}, a flexible and widely adopted transition-based parsing toolkit that supports various parsing strategies and languages. Its configurability and speed made it a go-to solution for both academic research and practical applications.
+
+Pushing the boundaries of expressiveness, Koo and Collins \cite{koo2010efficient} introduced an efficient third-order parser that incorporated rich structural features such as tri-siblings and grand-siblings into the graph-based framework. Their work demonstrated how higher-order relationships could improve accuracy without prohibitive computational costs.
+
+Bridging the gap between transition- and graph-based methods, Zhang and Nivre \cite{zhang2011transition} showed that using beam search and non-local features in transition-based parsing could dramatically improve performance, allowing fast parsers to model longer-range dependencies more effectively.
+
+The era of neural parsing began with the work of Chen and Manning \cite{chen2014fast}, who replaced hand-engineered feature templates with dense, learned representations using feedforward neural networks. This marked the first successful neural dependency parser and set the stage for deep learning approaches in syntactic analysis.
+
+Dozat and Manning \cite{dozat2017deep} further advanced the state of the art with their biaffine parser, which combined BiLSTM encoders and attention-based scoring in a graph-based architecture. This model achieved exceptional accuracy and became the de facto baseline for modern dependency parsing.
+
+Finally, Kondratyuk and Straka \cite{kondratyuk2019udpipe} leveraged multilingual BERT representations to build a single model capable of parsing 75 languages. This work illustrated the power of transfer learning and multilingual pretraining, solidifying dependency parsing’s place in the transformer era.
+
+Collectively, these works reflect the field’s evolution from symbolic representations to fast transition-based systems, globally optimized graph-based models, and finally to multilingual, deep neural approaches. Each milestone introduced innovations that not only advanced parsing accuracy but also expanded the range of languages and applications dependency parsing could support.
 
 \paragraph{The CoNLL Format.} The CoNLL shared tasks have played a central role in advancing dependency parsing by establishing standardized formats and evaluation frameworks. The original CoNLL-X shared task \citep{buchholz2006conll} introduced multilingual dependency treebanks in a unified format. This was followed by CoNLL 2007 \citep{nivre2007conll}, which expanded language coverage and improved annotation consistency.
 
