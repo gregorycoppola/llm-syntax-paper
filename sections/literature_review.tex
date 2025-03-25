@@ -3,7 +3,24 @@ Recent work has explored the ability of large language models (LLMs) to serve as
 
 However, despite these advances, fundamental questions remain about the linguistic competence of LLMs. For instance, \citet{hu2020systematic} present a large-scale evaluation of syntactic generalization that reveals several striking limitations in current neural language models. Contrary to expectations, perplexity—a standard benchmark for language modeling—was poorly correlated with syntactic generalization ability: models with lower perplexity often performed worse on syntax-targeted tests, undermining the assumption that broad coverage leads to deeper linguistic competence. Standard LSTM architectures, even when trained on tens of millions of tokens, failed to robustly learn basic syntactic phenomena such as subject–verb agreement, and performed at near-chance levels on long-distance dependencies and center-embedding constructions. Transformer-based models like GPT-2 achieved stronger performance, but much of this success was attributed to preprocessing artifacts such as subword tokenization rather than architectural advantages. Perhaps most notably, even the best models consistently failed on syntactic licensing tests, such as those involving negative polarity items—phenomena that humans acquire early and handle reliably. These results suggest that many linguistic generalizations that are trivial for humans remain surprisingly elusive for even the most capable neural language models.
 
-\subsection{POS Tagging and Shallow Syntax}
+\subsection{History of Part-of-Speech Tagging}
+
+The task of part-of-speech (POS) tagging—assigning grammatical categories like noun, verb, or adjective to words in a sentence—has evolved through several major paradigms over the past decades.
+
+Early work in the 1960s and 70s relied on rule-based approaches and manually curated lexicons. Greene and Kuno \cite{greene1963automatic} presented one of the earliest automatic tagging systems, combining dictionary lookups with hand-written disambiguation rules. The release of the Brown Corpus \cite{francis1979brown} marked a turning point by providing a large, annotated dataset for statistical analysis.
+
+In the early 1990s, the statistical revolution in NLP led to probabilistic models becoming dominant. Kupiec \cite{kupiec1992robust} applied Hidden Markov Models (HMMs) to POS tagging, modeling the tagging task as a sequence labeling problem. Brill \cite{brill1995transformation} introduced a transformation-based learning approach that combined rule induction with error-driven updates, achieving competitive results with interpretable rules.
+
+Machine learning continued to drive innovation. Ratnaparkhi \cite{ratnaparkhi1996maximum} introduced a Maximum Entropy tagger that incorporated contextual features in a flexible framework. Conditional Random Fields (CRFs), as formalized by Lafferty et al. \cite{lafferty2001conditional}, improved sequence labeling by modeling entire sequences of tags jointly, overcoming some of the limitations of HMMs.
+
+The 2000s also saw the development of more feature-rich models. Toutanova et al. \cite{toutanova2003feature} proposed a cyclic dependency network that leveraged linguistic features like prefixes and suffixes, improving accuracy on benchmark corpora.
+
+With the rise of deep learning in the 2010s, POS tagging transitioned into the neural era. Huang et al. \cite{huang2015bidirectional} demonstrated that bidirectional LSTM-CRF models could outperform traditional methods without the need for hand-engineered features. Akbik et al. \cite{akbik2018contextual} introduced contextual string embeddings, capturing rich character-level and word-level representations. The introduction of large pretrained language models like BERT \cite{devlin2019bert} further advanced the state of the art in POS tagging, especially when fine-tuned for sequence labeling tasks.
+
+Finally, the push toward multilingual and cross-lingual tagging led to the creation of Universal Dependencies (UD) \cite{nivre2016universal}, which provided standardized POS tags and treebanks across dozens of languages, enabling consistent evaluation and transfer learning techniques.
+
+Together, these developments reflect the broader trajectory of NLP: from hand-crafted systems to data-driven statistical models, and now to powerful, general-purpose neural architectures.
+
 
 A key development in standardized syntactic annotation came with \citet{petrov2012universal}'s introduction of a universal part-of-speech tagset, mapping diverse language-specific tag inventories to a shared 12-tag schema to support multilingual and cross-lingual syntactic processing. This standardization has been crucial for evaluating POS tagging performance across languages and models.
 
