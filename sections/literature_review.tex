@@ -41,6 +41,44 @@ Recent work has further explored LLMs' capabilities in semantic parsing. \citet{
 
 \citet{liu2023llm} also examine the impact of different prompting strategies on parsing performance, finding that structured prompts that explicitly guide the model through the parsing process tend to yield better results than simple task descriptions. They also investigate the role of in-context learning, showing that carefully selected examples can significantly improve parsing accuracy, particularly for complex queries.
 
+\subsection{Historical Evolution and State of the Art in Text-to-SQL}
+
+The task of translating natural language questions into executable SQL queries---commonly referred to as \emph{text-to-SQL}---has undergone significant transformation over the past decade. This section outlines the major milestones and the current landscape of text-to-SQL research, focusing on the interplay between evolving model architectures and data resources, and separating proprietary and open-source approaches.
+
+\subsubsection{Early Systems and the Rise of Benchmarks}
+
+Initial efforts in text-to-SQL were rule-based and constrained to narrow domains. The advent of neural networks enabled more flexible models. \citet{zhong2017seq2sql} introduced \texttt{Seq2SQL}, an early neural approach using reinforcement learning, marking the shift toward end-to-end learning.
+
+The release of the \texttt{Spider} dataset by \citet{yu2018spider} was a critical turning point. Designed for complex, cross-domain queries, \texttt{Spider} quickly became the de facto benchmark for evaluating generalization in text-to-SQL systems. Its influence extended to shaping evaluation metrics and driving architectural innovations.
+
+\subsubsection{Advances through Pretrained Language Models}
+
+Following the success of general-purpose pre-trained language models (PLMs), researchers began leveraging them for semantic parsing. Techniques such as schema linking and representation learning, exemplified in \texttt{RESDSQL} by \citet{li2023resdsql}, pushed the performance of PLM-based systems on \texttt{Spider} and similar datasets.
+
+Further, \citet{deng2021structure} demonstrated that grounding pretraining in schema and table structures could substantially improve performance, introducing structure-aware PLM training. These approaches, however, were limited by the fixed capacity of PLMs and required task-specific tuning.
+
+\subsubsection{Transition to Large Language Models (LLMs)}
+
+The recent emergence of Large Language Models (LLMs) has transformed the text-to-SQL landscape. Studies such as \citet{rajkumar2022evaluating} and \citet{pourreza2023dinsql} evaluated LLMs like GPT-3 and GPT-4 in zero- and few-shot regimes, showing strong performance without explicit training. \texttt{DIN-SQL} in particular introduced decomposition and self-correction to improve in-context learning (ICL).
+
+Despite these advances, proprietary LLMs pose challenges for reproducibility and data privacy. To address this, the community has turned to open-source LLMs and training pipelines.
+
+\subsubsection{Open-Source LLMs and Training Pipelines}
+
+Recent work by \citet{li2024codes} proposed \texttt{CodeS}, a pre-training and fine-tuning framework specifically designed for SQL generation. It builds upon code-specific language models like StarCoder and incorporates SQL-augmented corpora for improved domain alignment.
+
+Complementarily, \citet{hong2024knowledge} proposed \texttt{Knowledge-to-SQL}, an expert-augmented framework using fine-tuned models to inject domain knowledge and schema-aware reasoning, showing promising results on realistic and adversarial datasets.
+
+\subsubsection{Benchmarking the Landscape}
+
+A comprehensive benchmark comparison by \citet{gao2024benchmark} contrasted both proprietary and open-source LLMs across multiple datasets, including \texttt{Spider}, \texttt{BIRD}, and \texttt{Spider-Realistic}. Their findings illustrate a performance gap between closed and open models but highlight the rapid improvement of open-source alternatives through fine-tuning and prompt engineering.
+
+\subsubsection{Current Challenges and Future Directions}
+
+While LLMs show remarkable flexibility, the gap between controlled benchmarks and real-world deployment remains. Robustness to vague queries, schema complexity, and low-resource domains are active areas of research. Models like \texttt{SQLNet}~\cite{xu2017sqlnet} and newer decomposition-based methods suggest that combining symbolic reasoning with generative models may offer a path forward.
+
+As the field continues to mature, there is a growing emphasis on interpretability, cost-efficiency, and privacy---challenges especially pertinent for industrial deployment. The interplay between open-source LLMs and domain-adapted fine-tuning pipelines marks a promising direction for creating practical, general-purpose natural language interfaces to databases.
+
 \paragraph{Conclusion.}
 Taken together, these studies highlight the expanding capacity of LLMs to perform syntactic and semantic analysis across languages and tasks. From POS tagging to deep compositional semantics, LLMs increasingly demonstrate internalized linguistic structure. Yet consistent challenges in structured prediction—especially for multilingual and zero-shot scenarios—indicate that traditional parsing insights remain essential. This review sets the stage for our own investigation into [insert your focus here], which further explores the interface between LLM prompting, structure induction, and linguistic generalization.
 
