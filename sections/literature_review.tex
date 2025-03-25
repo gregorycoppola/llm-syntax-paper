@@ -156,3 +156,32 @@ On the challenge set, however, the gains were dramatic. The overall Wu-Palmer si
 
 These findings are not only state-of-the-art for semantic parsing with Discourse Representation Structures, but they also suggest new directions for improving LLM-based parsers in other structured semantic tasks, including AMR and Text-to-SQL. Retrieval-augmented generation thus offers a promising paradigm for combining the strengths of statistical parsing and symbolic resources.
 
+\subsection{Beyond Pretraining: Retrieval-Augmented and Structure-Aware Parsing with LLMs}
+
+Recent work has demonstrated that large language models (LLMs) benefit not only from larger model size and better pretraining objectives, but also from the integration of external structure—be it in the form of symbolic knowledge, task-specific prompts, or compositional representations. This subsection surveys several prominent methods that extend the RASP paradigm through retrieval, structural supervision, or neuro-symbolic grounding to enhance LLM-based semantic parsing and generalization.
+
+\paragraph{UPRISE: Universal Prompt Retrieval for Zero-Shot Tasks}
+
+\citet{cheng2023uprise} propose \textbf{UPRISE}, a retrieval-augmented framework that improves zero-shot performance in structured prediction by retrieving task-specific prompts. Rather than relying solely on handcrafted prompt templates, UPRISE builds a bank of example prompts and retrieves the most relevant ones based on the test input using dense similarity. These retrieved prompts are appended to the model input before decoding, effectively grounding generation in in-context prior examples. UPRISE improves zero-shot accuracy on a range of tasks including semantic parsing, code generation, and text-to-SQL, and provides a flexible template-free alternative to handcrafted instruction tuning.
+
+\paragraph{KG-BART: Injecting Knowledge Graphs into Generative Models}
+
+\citet{liu2021kgbart} introduce \textbf{KG-BART}, a framework that incorporates subgraphs from external knowledge graphs—specifically ConceptNet—into the BART model to enhance commonsense reasoning. The model encodes these graphs alongside the input sequence, allowing the decoder to attend to both textual and symbolic representations. Although developed for commonsense QA, the approach demonstrates the value of integrating structured external knowledge into generative models. KG-BART provides evidence that grounding LLMs in symbolic context improves their semantic fidelity and robustness, particularly in low-resource or ambiguous settings.
+
+\paragraph{StructGPT: Parsing as Structured Action}
+
+\citet{lu2023structgpt} present \textbf{StructGPT}, a method that treats structured prediction as a sequence of programmatic actions using a domain-specific language (DSL). Rather than producing raw text, the LLM is prompted to generate parse trees or structured outputs by selecting from tool-like functions (e.g., "AddNode", "SetLabel"). This framing allows the LLM to reason in a constrained, compositional space, dramatically improving structure compliance. While not retrieval-based, StructGPT illustrates how guiding LLM output using symbolic constraints can improve precision and interpretability in parsing tasks.
+
+\paragraph{ATLAS: Retrieval-Augmented Few-Shot Learning}
+
+\textbf{ATLAS} \citep{izacard2024atlas} is a general-purpose retrieval-augmented generation framework that fine-tunes LLMs to perform tasks conditioned on external retrieved text segments. Unlike systems that treat retrieval as static, ATLAS jointly learns both the retriever and generator end-to-end. Although originally proposed for QA and open-domain tasks, ATLAS has since been adapted to AMR parsing and other meaning representation tasks. The key insight is that pairing LLMs with learned retrievers allows them to generalize to unseen inputs using latent semantic memory. ATLAS represents a scalable, modular approach to grounding LLMs in task-relevant knowledge.
+
+\paragraph{Structure-Aware Pretraining for Structured Data}
+
+\citet{li2023structure} propose \textbf{structure-aware pretraining} (SAP), which modifies the pretraining objective of LLMs to emphasize structural relationships in data such as tables and parse trees. By pretraining on structured data with hierarchical and compositional constraints, the resulting models generalize better to downstream tasks like dense retrieval and Text-to-SQL. Unlike RASP or UPRISE, this approach does not involve retrieval at inference time; instead, it biases the model during pretraining to become sensitive to structured patterns. SAP demonstrates that injecting structural inductive bias into LLM pretraining leads to more robust parsing capabilities even without fine-tuning.
+
+\paragraph{TAX-Parser and AMS-Parser: Neuro-Symbolic Integration}
+
+Finally, two neuro-symbolic systems—\textbf{TAX-Parser} \citep{zhang2024taxparser} and \textbf{AMS-Parser} \citep{yang2024amsparser}—offer complementary approaches to integrating structured meaning representations with neural models. TAX-Parser encodes Discourse Representation Structures (DRS) into linearized forms and trains neural models to generate these sequences with high accuracy. AMS-Parser goes further by using explicit compositional operators and symbol manipulation during inference, achieving very low ill-formed rates and strong generalization. These systems outperform many baseline LLMs on DRS parsing, especially in cases where interpretability and syntactic correctness are critical. While not retrieval-augmented, their neuro-symbolic nature aligns with the RASP philosophy of combining LLM fluency with external structure.
+
+\paragraph{Summary.} Collectively, these methods highlight a broader shift in the LLM era: from monolithic pretraining toward hybrid systems that ground generation in structured, external, or symbolic information. Whether through prompt retrieval (UPRISE), graph-based context (KG-BART), structured tool output (StructGPT), dense passage memory (ATLAS), structural bias in pretraining (SAP), or symbolic decoding (TAX/AMS), each method demonstrates that LLMs can be substantially enhanced when combined with structured information. These approaches represent a promising frontier for semantic parsing, where data efficiency, generalization, and interpretability remain key challenges.
