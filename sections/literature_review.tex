@@ -93,11 +93,6 @@ Collectively, these works reflect the field’s evolution from symbolic represen
 
 A pivotal development in representation came with \citet{de2006generating}'s Stanford Typed Dependencies, which provided a syntactically and semantically motivated dependency scheme. These efforts influenced the Universal Dependencies (UD) project \citep{nivre2016universal}, which today serves as the primary framework for evaluating dependency parsers in the CoNLL-U format.
 
-\subsection{Zero-Shot Dependency Parsing}
-
-Recent research has explored whether LLMs like ChatGPT can perform dependency parsing in a zero-shot setting. \citet{lin2023chatgpt} investigated whether ChatGPT could generate dependency trees when prompted directly in CoNLL format. While the model showed some emergent syntactic awareness and produced partially valid parses, performance remained far below that of supervised parsers, with LAS scores of only 28.61 on PTB and 11.93 on CTB5. Outputs also required significant post-processing due to formatting inconsistencies and labeling errors. Other LLMs (e.g., Vicuna, HuggingChat) failed to generate valid output even with one-shot examples.
-
-Thus, while promising, zero-shot dependency parsing with ChatGPT is not yet reliable. However, the observed generalization suggests potential for supporting downstream linguistic analysis.
 
 \subsection{Semantic Parsing and Compositional Semantics}
 
@@ -252,3 +247,9 @@ In parallel, \citet{callison2009fast} applied MTurk to the evaluation of machine
 Subsequent work has emphasized that the **assumptions behind crowdsourcing often mask deeper structural problems**. \citet{sabou2014corpus} argued for best-practice guidelines in crowdsourced annotation, highlighting the need for clear instructions, quality control mechanisms, and fair treatment of annotators. \citet{paullada2021data} provided a broader critique, noting that reliance on large-scale crowd annotation has often led to **datasets that are poorly documented, unrepresentative, or ethically problematic**. They argue for a data-centric reevaluation of machine learning pipelines, in which the origin, curation, and social implications of datasets are treated as core scientific concerns.
 
 \paragraph{Reflection.} Taken together, these works illustrate the dual nature of crowdsourced annotation. On one hand, platforms like MTurk have made it possible to scale up dataset construction rapidly and affordably, which has been vital to the development of large neural models. On the other hand, the limitations—both practical and ethical—have become increasingly visible, especially as annotation tasks grow more complex and value-laden. In contemporary NLP, annotation practices are beginning to shift toward more curated, expert-driven, or hybrid systems (e.g., combining LLM-generated suggestions with human verification), as researchers grapple with how to align annotation quality, fairness, and sustainability.
+
+\subsection{LLM's as Zero-Shot Dependency Parsers}
+
+Recent research has explored whether LLMs like ChatGPT can perform dependency parsing in a zero-shot setting. \citet{lin2023chatgpt} investigated whether ChatGPT could generate dependency trees when prompted directly in CoNLL format. While the model showed some emergent syntactic awareness and produced partially valid parses, performance remained far below that of supervised parsers, with LAS scores of only 28.61 on PTB and 11.93 on CTB5. Outputs also required significant post-processing due to formatting inconsistencies and labeling errors. Other LLMs (e.g., Vicuna, HuggingChat) failed to generate valid output even with one-shot examples.
+
+Thus, while promising, zero-shot dependency parsing with ChatGPT is not yet reliable. However, the observed generalization suggests potential for supporting downstream linguistic analysis.
