@@ -3,6 +3,28 @@ Recent work has explored the ability of large language models (LLMs) to serve as
 
 However, despite these advances, fundamental questions remain about the linguistic competence of LLMs. For instance, \citet{hu2020systematic} present a large-scale evaluation of syntactic generalization that reveals several striking limitations in current neural language models. Contrary to expectations, perplexity—a standard benchmark for language modeling—was poorly correlated with syntactic generalization ability: models with lower perplexity often performed worse on syntax-targeted tests, undermining the assumption that broad coverage leads to deeper linguistic competence. Standard LSTM architectures, even when trained on tens of millions of tokens, failed to robustly learn basic syntactic phenomena such as subject–verb agreement, and performed at near-chance levels on long-distance dependencies and center-embedding constructions. Transformer-based models like GPT-2 achieved stronger performance, but much of this success was attributed to preprocessing artifacts such as subword tokenization rather than architectural advantages. Perhaps most notably, even the best models consistently failed on syntactic licensing tests, such as those involving negative polarity items—phenomena that humans acquire early and handle reliably. These results suggest that many linguistic generalizations that are trivial for humans remain surprisingly elusive for even the most capable neural language models.
 
+\subsection{Foundations of Generative Linguistics and Formal Semantics}
+
+The development of generative linguistics in the second half of the 20th century marked a dramatic shift in the scientific study of language, emphasizing the formal structure of syntax and its relationship to meaning. This subsection highlights five foundational works that shaped this intellectual movement and laid the groundwork for modern syntactic and semantic theory.
+
+\paragraph{Chomsky (1957): \textit{Syntactic Structures}.}
+This work introduced the concept of a \emph{generative grammar}—a formal system capable of generating the infinite set of grammatical sentences in a language. Chomsky proposed a set of phrase structure rules and transformational rules, arguing that syntactic theory should be precise, explicit, and formally rigorous. The book also introduced the notion of deep structure and raised fundamental questions about the inadequacy of finite-state models for capturing human syntax. It effectively launched the generative paradigm and established syntax as a central object of linguistic inquiry.
+
+\paragraph{Chomsky (1965): \textit{Aspects of the Theory of Syntax}.}
+In this follow-up, Chomsky significantly extended his theoretical framework by distinguishing between \emph{competence} (the idealized knowledge of language) and \emph{performance} (actual language use). He refined the concept of deep vs. surface structure and introduced the T-model architecture of grammar. The work also proposed the theory of \emph{universal grammar}—a set of innate principles and parameters shared by all human languages—which became a cornerstone of subsequent research in generative syntax and language acquisition.
+
+\paragraph{Katz and Fodor (1963): \textit{The Structure of a Semantic Theory}.}
+This influential paper represented one of the earliest attempts to systematically integrate semantics into the generative framework. Katz and Fodor proposed a decompositional view of lexical meaning, where word senses are defined in terms of bundles of semantic features. Their model attempted to link syntactic structure to semantic interpretation, setting the stage for formal approaches to the syntax–semantics interface. Though later surpassed by model-theoretic semantics, their work was instrumental in establishing semantics as a formal, computationally tractable component of linguistic theory.
+
+\paragraph{Jackendoff (1972): \textit{Semantic Interpretation in Generative Grammar}.}
+Jackendoff extended the generative program by proposing a more elaborate mapping from syntactic structure to semantic interpretation. He introduced the idea of multiple levels of representation—syntactic, semantic, and phonological—and emphasized their interaction. His framework helped clarify the architecture of grammar and provided early formulations of what would become \emph{conceptual semantics}, influencing both generative and cognitive approaches to meaning.
+
+\paragraph{Montague (1970): \textit{English as a Formal Language}.}
+Montague revolutionized semantic theory by showing that natural languages could be treated with the same formal rigor as logical systems. He applied tools from model theory, lambda calculus, and type theory to build compositional semantics for fragments of English. This work laid the foundation for \emph{Montague Grammar}, a highly influential framework that unified syntax and semantics. Although developed independently of the Chomskyan tradition, Montague’s work profoundly influenced generative semantics and was later integrated into transformational grammar by scholars such as Partee.
+
+Together, these works represent the intellectual bedrock of modern linguistic theory. They established the principles of syntactic generation, formal semantic interpretation, and the architecture of linguistic competence, shaping decades of subsequent research in theoretical linguistics, psycholinguistics, and computational models of language.
+
+
 \subsection{History of Part-of-Speech Tagging}
 
 The task of part-of-speech (POS) tagging—assigning grammatical categories like noun, verb, or adjective to words in a sentence—has evolved through several major paradigms over the past decades.
