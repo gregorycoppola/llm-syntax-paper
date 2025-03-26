@@ -1,9 +1,19 @@
 The application of large language models to linguistic analysis presents both opportunities and challenges. While these models have demonstrated remarkable capabilities in understanding and generating human language, their potential for formal linguistic analysis remains largely unexplored. This work seeks to bridge this gap by:
+\subsection{Landmark Papers in LLM-Based Reasoning}
+
+Recent years have witnessed a surge in research focused on enhancing the reasoning capabilities of large language models (LLMs). Among the numerous contributions, five papers stand out for their foundational impact on the field:
 
 \begin{itemize}
-    \item Investigating the direct application of LLMs to standard linguistic tasks
-    \item Exploring novel approaches to linguistic annotation using LLMs
-    \item Understanding the limitations and capabilities of LLMs in formal linguistic analysis
+    \item \textbf{Chain-of-Thought Prompting (Wei et al., 2022)} introduced the idea of prompting LLMs to generate intermediate reasoning steps. This simple but powerful technique led to substantial improvements in tasks requiring multi-step reasoning, such as arithmetic and commonsense QA \cite{wei2022chain}.
+
+    \item \textbf{Program of Thoughts Prompting (Chen et al., 2022)} proposed decoupling reasoning from computation by structuring prompts as pseudo-code. This approach showed improved performance on numerical reasoning tasks and inspired more formalized reasoning pipelines \cite{chen2022program}.
+
+    \item \textbf{Tree of Thoughts (Yao et al., 2023)} extended linear reasoning chains to tree-structured exploration. By enabling deliberation over multiple reasoning paths, this method significantly improved performance on decision-making and planning problems \cite{yao2023tree}.
+
+    \item \textbf{Self-Consistency Decoding (Wang et al., 2022)} improved reasoning reliability by sampling multiple reasoning paths and selecting the most frequent answer. This strategy mitigates errors caused by unstable generation and complements chain-of-thought prompting \cite{wang2022self}.
+
+    \item \textbf{ReAct (Yao et al., 2022)} integrated reasoning and acting by combining thought generation with real-time tool use. ReAct agents can interact with environments (e.g., search engines or calculators) while reasoning, enabling more robust and grounded problem-solving \cite{yao2022react}.
 \end{itemize}
 
-Our findings have implications for both theoretical linguistics and practical applications in natural language processing. 
+These works form the conceptual backbone of current advances in LLM-based reasoning, setting the stage for increasingly capable, general-purpose reasoning agents.
+
