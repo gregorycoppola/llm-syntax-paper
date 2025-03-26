@@ -206,6 +206,22 @@ Recent work has demonstrated that large language models (LLMs) benefit not only 
 
 Finally, two neuro-symbolic systems—\textbf{TAX-Parser} \citep{zhang2024taxparser} and \textbf{AMS-Parser} \citep{yang2024amsparser}—offer complementary approaches to integrating structured meaning representations with neural models. TAX-Parser encodes Discourse Representation Structures (DRS) into linearized forms and trains neural models to generate these sequences with high accuracy. AMS-Parser goes further by using explicit compositional operators and symbol manipulation during inference, achieving very low ill-formed rates and strong generalization. These systems outperform many baseline LLMs on DRS parsing, especially in cases where interpretability and syntactic correctness are critical. While not retrieval-augmented, their neuro-symbolic nature aligns with the RASP philosophy of combining LLM fluency with external structure.
 
+\paragraph{Retrieval-Augmented Semantic Parsing (RASP)}
+
+RASP (Retrieval-Augmented Semantic Parsing) enhances large language models (LLMs) for structured semantic parsing by incorporating external lexical knowledge at inference time. Specifically, given an input sentence, RASP retrieves WordNet synsets (concepts) for content words and appends their glosses (definitions) to the model input. This extended prompt helps the model disambiguate polysemous words based on context and guides the generation of Discourse Representation Structures (DRSs).
+
+The generation process is left-to-right, consistent with decoder-only models. Formally, the probability of generating a meaning representation \( o \) given input sentence \( x \) and retrieved concepts \( o' \) is defined as:
+
+\[
+P_{\text{RASP}}(o \mid x) = p(o' \mid x) \cdot \prod_{i=1}^{n} p_\theta(o_i \mid x, o', o_{1:i-1})
+\]
+
+This approach improves both in-distribution and out-of-distribution (OOD) generalization. On standard benchmarks from the Parallel Meaning Bank (PMB 5.1.0), RASP consistently outperforms non-augmented LLMs. For instance, the 9B-parameter Gemma2 model improved its Hard-SMatch score from 90.72 to 91.37 and its F1 node-level score from 84.67 to 86.11. 
+
+More notably, on a challenge set designed to test OOD concept understanding, RASP nearly doubled the semantic similarity (measured by Wu-Palmer similarity) between predicted and gold concepts. Gemma2-9B, for example, improved its overall similarity score from 42.54 to 70.41. These gains were especially significant for rare noun senses, where improvements ranged from 70\% to 95\%.
+
+RASP demonstrates that retrieval-based input augmentation can substantially enhance concept-level semantic understanding and disambiguation in LLMs, especially in low-resource or zero-shot settings.
+
 \paragraph{Summary.} Collectively, these methods highlight a broader shift in the LLM era: from monolithic pretraining toward hybrid systems that ground generation in structured, external, or symbolic information. Whether through prompt retrieval (UPRISE), graph-based context (KG-BART), structured tool output (StructGPT), dense passage memory (ATLAS), structural bias in pretraining (SAP), or symbolic decoding (TAX/AMS), each method demonstrates that LLMs can be substantially enhanced when combined with structured information. These approaches represent a promising frontier for semantic parsing, where data efficiency, generalization, and interpretability remain key challenges.
 
 \subsection{Mechanical Turk and the Promise—and Limits—of Crowdsourced Annotation}
