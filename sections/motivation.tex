@@ -17,3 +17,14 @@ Recent years have witnessed a surge in research focused on enhancing the reasoni
 
 These works form the conceptual backbone of current advances in LLM-based reasoning, setting the stage for increasingly capable, general-purpose reasoning agents.
 
+\paragraph{Least-to-Most Prompting (Zhou et al., 2022)}  
+Zhou et al.~\cite{zhou2022least} introduced the \emph{least-to-most prompting} technique, which enhances LLM reasoning by decomposing complex questions into simpler sub-questions. This method enables step-by-step reasoning, allowing models like GPT-3 to outperform traditional chain-of-thought prompting on complex tasks. The technique is inspired by cognitive psychology and significantly improves performance on benchmarks such as GSM8K and MultiArith.
+
+\paragraph{Toolformer (Schick et al., 2023)}  
+Toolformer~\cite{schick2023toolformer} proposes a self-supervised approach to teach LLMs how to use external tools, such as calculators or web search APIs, without human-annotated demonstrations. The model selects and inserts API calls during training, learning when and how to use tools to improve its task performance. This work bridges the gap between static LLMs and interactive agents capable of tool use, enhancing performance on tasks requiring factual lookup or computation.
+
+\paragraph{Auto-GPT (Richards, 2023)}  
+Auto-GPT~\cite{torantulino2023autogpt} is one of the earliest open-source implementations of autonomous language agents powered by GPT-4. It chains LLM calls with self-reflection, memory, and tool use to achieve high-level goals without constant human supervision. While primarily an experimental system, Auto-GPT sparked widespread interest in autonomous agents and highlighted both the promise and limitations of current LLMs when operating over long contexts and evolving plans.
+
+\paragraph{Reflexion (Shinn et al., 2023)}  
+Shinn et al.~\cite{shinn2023reflexion} proposed \emph{Reflexion}, a framework in which LLM agents improve task performance through verbal self-reflection. After failing at a task, the agent generates natural language feedback describing the mistake and uses this reflection to guide future attempts. Reflexion combines elements of reinforcement learning and meta-cognition, and has shown to improve the reliability of language agents across multiple interactive tasks.
