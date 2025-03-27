@@ -1,17 +1,9 @@
-Our research has demonstrated both the potential and limitations of using large language models for linguistic analysis. Key findings include:
+\label{sec:conclusion}
 
-\begin{itemize}
-    \item The challenges of direct CoNLL parsing with LLMs
-    \item The effectiveness of LLMs as guided linguistic annotators
-    \item Quantitative validation of qualitative observations
-\end{itemize}
+This work offers a systematic investigation into how large language models, particularly ChatGPT, can engage with syntactic structure across a range of tasks—from full parsing and POS tagging to critique, disambiguation, and interactive repair. Our findings reveal a consistent pattern: while LLMs struggle to produce fully structured outputs in end-to-end parsing settings, they excel at recognizing, describing, and correcting syntactic phenomena when prompted appropriately.
 
-\subsection{Future Work}
-Several promising directions for future research emerge:
-\begin{itemize}
-    \item Improved prompt engineering for linguistic tasks
-    \item Integration with traditional linguistic tools
-    \item Exploration of other linguistic annotation formats
-\end{itemize}
+These results suggest that the syntactic competence of LLMs is real but latent: it is more readily accessed through interactive or decomposed tasks than through monolithic generation. By leveraging this competence in hybrid workflows—combining traditional parsers, LLMs, and human oversight—we can build systems that are not only more accurate but also more interpretable and adaptable.
 
-These findings contribute to our understanding of how LLMs can be effectively utilized in linguistic research and practical applications. 
+Moreover, our agentic architecture for parse refinement opens new possibilities for language model interaction with structured data. Rather than treating structure as a fixed output format, we can frame syntactic analysis as an iterative, dialogic process in which models serve as collaborators in refinement rather than sole producers of structure.
+
+As large language models continue to evolve, we believe their role in linguistic annotation will shift from parser to partner—supporting new workflows that blend reasoning, structure, and interactivity. This study lays the groundwork for that shift and offers tools and insights for realizing it in practice.
