@@ -1,8 +1,17 @@
-This study addresses two primary research questions:
+\label{sec:contributions}
+
+This work provides a comprehensive investigation into the syntactic capabilities of large language models, focusing on ChatGPT’s ability to perform, critique, and improve dependency parses under minimal supervision. Our contributions are as follows:
 
 \begin{enumerate}
-    \item To what extent can large language models like ChatGPT perform direct linguistic parsing tasks?
-    \item Can ChatGPT effectively act as a linguistic annotator when guided through a structured annotation process?
-\end{enumerate}
+    \item \textbf{Empirical evaluation of zero-shot parsing.} We show that ChatGPT fails to produce coherent full parses when prompted in a zero-shot setting. On a benchmark evaluation, the model achieved only 12.4\% unlabeled attachment score (UAS) and 7.9\% labeled attachment score (LAS), in contrast to 91.3\% UAS and 88.6\% LAS from a traditional Stanford dependency parser. However, when decomposed into subtasks, ChatGPT achieved strong performance on part-of-speech (POS) tagging (89.6\% accuracy), suggesting that it encodes useful local syntactic information even in the absence of global structural consistency.
 
-These questions aim to explore both the direct computational capabilities and the potential for LLMs to serve as linguistic analysis tools when properly prompted. 
+    \item \textbf{Qualitative understanding of syntactic ambiguity.} Through a detailed case study of prepositional phrase (PP) attachment, we show that ChatGPT can recognize and explain syntactic ambiguity even when it fails to resolve it correctly in parsing. The model’s explanations demonstrated meta-linguistic awareness and the ability to contrast competing attachment sites based on world knowledge and context.
+
+    \item \textbf{Controlled evaluation of PP disambiguation.} We constructed a dataset of 20 syntactically ambiguous sentences and used ChatGPT’s own interpretive judgments (via the web interface) as a gold standard. When evaluated on this dataset, the ChatGPT API achieved 95\% accuracy in resolving attachment ambiguities, compared to 50\% accuracy from the Stanford parser. A binomial test confirmed the statistical significance of this result ($p = 2.0 \times 10^{-5}$), with a 95\% confidence interval of $[76.4\%, 99.1\%]$.
+
+    \item \textbf{Evaluation of ChatGPT as a syntactic critic.} We further tested ChatGPT’s ability to evaluate the output of an existing parser by prompting it to assess whether a specific word had been attached incorrectly in a given parse. ChatGPT’s binary judgments matched the gold standard in 95\% of cases, and its free-form explanations were judged correct in 94.7\% of cases upon manual review. This establishes the model’s value not just as a parser, but as an evaluator capable of providing meaningful syntactic feedback.
+
+    \item \textbf{Agentic parse repair via iterative prompting.} We designed and implemented a looped architecture in which ChatGPT iteratively critiques and revises parses until no further improvements are suggested. Applied to 100 sentences from the Stanford parser, this agentic workflow revised 30.4\% of all dependency arcs, improved labeled attachment score from 76.3\% to 84.9\%, and was judged to produce valid edits in 89.0\% of cases. These results demonstrate that LLMs can be used not only for structured prediction, but also for interactive refinement of syntactic structure.
+
+    \item \textbf{Implications for hybrid annotation workflows.} Taken together, these results suggest a broader reconceptualization of the role of LLMs in NLP pipelines. Rather than serving solely as generators of syntactic structure, models like ChatGPT are most effective when used in human-in-the-loop or agentic settings—as annotators, critics, and editors of syntactic representations. This opens up new directions for scalable, interpretable, and interactive linguistic annotation.
+\end{enumerate}
