@@ -1,0 +1,27 @@
+\subsection{Exploratory Analysis}
+\label{subsec:pp-attachment}
+
+To complement our quantitative evaluation, we conducted a qualitative case study of one particularly challenging syntactic phenomenon: prepositional phrase (PP) attachment. PP attachment has long been a source of ambiguity in syntactic parsing, and LLMs are known to struggle with it, especially in zero-shot settings.
+
+We selected a naturally occurring sentence from Twitter that involved a misinterpretation of a “with”-phrase. The sentence was:
+
+\begin{quote}
+    \textit{She saw the man with the telescope.}
+\end{quote}
+
+This sentence is classically ambiguous: the prepositional phrase \textit{“with the telescope”} can attach either to the noun \textit{“man”} (implying the man had the telescope) or to the verb \textit{“saw”} (implying she used the telescope). In this specific instance, the intended reading was the latter, but ChatGPT, when asked to provide a dependency parse, attached the PP to the noun.
+
+Despite this syntactic error in parsing, we then followed up with a prompt asking the model:
+
+\begin{quote}
+    \textit{Why might someone interpret this sentence the wrong way?}
+\end{quote}
+
+ChatGPT responded with an explanation that correctly identified the ambiguity and discussed both possible attachment sites:
+
+\begin{quote}
+    \textit{This sentence is ambiguous because the phrase “with the telescope” could attach either to “the man” or to “saw.” If you attach it to “the man,” it implies the man had the telescope. If you attach it to “saw,” it means she used the telescope to see him. Without additional context, both interpretations are valid.}
+\end{quote}
+
+This qualitative result suggests that while ChatGPT does not reliably produce the correct parse in structurally ambiguous sentences, it is capable of *describing* the ambiguity and articulating the competing interpretations. This supports the idea that LLMs have access to latent syntactic representations and world knowledge that can be activated in interactive settings, even when they fail to apply that knowledge in structured parsing tasks.
+
