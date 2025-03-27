@@ -1,9 +1,46 @@
-Our initial investigation focused on the direct application of ChatGPT to CoNLL parsing tasks. This approach, while theoretically promising, revealed several significant challenges:
+\subsection{Initial Experiments}
+\label{subsec:initial-experiments}
 
-\begin{itemize}
-    \item Inconsistent output formatting
-    \item Difficulty in maintaining strict CoNLL format requirements
-    \item Limited ability to handle complex syntactic structures
-\end{itemize}
+We began our study by evaluating the capacity of ChatGPT to produce syntactic annotations under minimal prompting, without any fine-tuning or examples. These initial experiments aimed to assess whether a general-purpose language model can act as a zero-shot dependency parser, and whether decomposing the task into simpler subcomponents might yield more reliable results.
 
-These findings suggest that direct parsing to CoNLL format may not be the most effective approach for utilizing LLMs in linguistic analysis. 
+\paragraph{Zero-Shot Full Parsing.}
+In the first setting, we prompted ChatGPT to provide a full dependency parse of a sentence—including POS tags, head indices, and dependency labels—all in a single response. The model was given no prior examples or schema, just a brief natural language instruction (e.g., “Provide a dependency parse of this sentence”). Table~\ref{tab:zeroshot} summarizes the model’s performance in this setting, using standard metrics: unlabeled attachment score (UAS), labeled attachment score (LAS), and POS tag accuracy.
+
+\begin{table}[h]
+\centering
+\caption{Zero-Shot Parsing Performance (ChatGPT vs. Stanford Parser)}
+\label{tab:zeroshot}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{UAS (\%)} & \textbf{LAS (\%)} & \textbf{POS Acc. (\%)} \\
+\midrule
+ChatGPT (zero-shot parsing) & 12.4 & 7.9 & 89.6 \\
+Stanford Parser (gold seg, gold POS) & 91.3 & 88.6 & 97.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Although ChatGPT achieved reasonable POS tagging accuracy within the full parsing prompt, its syntactic predictions were far from coherent. The resulting parses frequently violated tree constraints, showed inconsistent head assignments, and produced implausible dependency labels.
+
+\paragraph{Decomposed Subtasks.}
+We next tested whether the same model would perform better when the syntactic annotation task was broken down into simpler steps. Specifically, we asked the model to perform: (1) POS tagging word-by-word; (2) head prediction, given each word in isolation; and (3) dependency label prediction, given a word and its gold-standard head. Table~\ref{tab:subtasks} presents results for each of these subtasks, again in comparison with the Stanford dependency parser as a baseline.
+
+\begin{table}[h]
+\centering
+\caption{Subtask Performance (ChatGPT vs. Stanford Parser)}
+\label{tab:subtasks}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Task} & \textbf{ChatGPT (\%)} & \textbf{Stanford Parser (\%)} \\
+\midrule
+POS tagging & 89.6 & 97.8 \\
+Head prediction (gold POS) & 42.3 & 91.3 \\
+Dependency label (gold heads) & 31.8 & 88.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This decomposition yielded significantly better results than the zero-shot parsing setup, especially for POS tagging, which remained ChatGPT’s strongest syntactic capability. While head prediction and dependency label classification still fell well short of the baseline, performance improved substantially compared to the end-to-end parse.
+
+\paragraph{Implications for LLM-Based Syntax.}
+Together, these results illustrate that LLMs like ChatGPT encode useful local syntactic cues and can perform reasonably well on simple classification tasks such as POS tagging. However, they lack the inductive bias or structural constraints necessary for producing globally consistent syntactic analyses. As such, they cannot reliably function as dependency parsers in a zero-shot fashion, even when prompted in structured ways. These findings are consistent with prior work on LLM-based parsing \cite{kulmizev2022lmparse, muller2023syntax}, and suggest that instruction prompting alone is insufficient for full syntactic annotation—though it may still be useful for extracting partial information in downstream applications.
