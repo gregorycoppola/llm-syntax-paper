@@ -50,3 +50,13 @@ In the second case, we presented the simpler sentence:
 Here, both the parser and ChatGPT assigned \textit{“content”} as the direct object and \textit{“all”} as its determiner—an analysis that aligns with canonical syntactic structures and our own judgment.
 
 Taken together, these examples illustrate that ChatGPT is capable of recognizing multiple, contextually valid parses—even when its initial output is imperfect. The fact that the model agreed with the Stanford parser in one case, and disagreed in another, yet aligned with human linguistic reasoning in both, supports the idea that LLMs possess latent syntactic knowledge that is accessible through interaction and contextual prompting.
+
+\subsubsection{Agreement on a Curated Attachment Dataset}
+
+To further evaluate ChatGPT’s syntactic competence, we conducted a collaborative dataset construction exercise focused on prepositional phrase attachment. In this case, the model was asked to generate a set of 20 syntactically ambiguous sentences, each involving a prepositional phrase whose attachment site (e.g., verb or noun) might plausibly vary depending on interpretation.
+
+First, ChatGPT produced the 20 examples, each annotated with the intended attachment (e.g., “attach to verb” or “attach to noun”). We then manually reviewed each sentence, checking whether the proposed attachment was semantically and syntactically plausible. In all cases, we agreed with the model’s judgments, which demonstrated strong contextual awareness and a high degree of alignment with human intuitions.
+
+To complete the loop, we presented the validated dataset back to ChatGPT and asked it to reassess the attachment decisions. The model reaffirmed the original judgments across the board, offering consistent and well-reasoned justifications for each case. This round-trip evaluation—model proposes, human verifies, model reaffirms—offers compelling evidence that ChatGPT is not merely pattern-matching surface strings, but is capable of maintaining coherent and linguistically-informed attachment decisions over multiple turns of interaction.
+
+This experiment also supports the claim that LLMs can be used as collaborative linguistic tools—not just for generation or analysis in isolation, but for *co-construction* and *validation* of structured linguistic phenomena like syntactic ambiguity.
