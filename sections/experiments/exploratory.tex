@@ -1,4 +1,8 @@
 \subsection{Exploratory Analysis}
+\label{subsec:exploratory}
+
+\subsubsection{Interpreting Multiple Valid Parses: Evidence of Latent Syntactic Knowledge}
+
 \label{subsec:pp-attachment}
 
 To complement our quantitative evaluation, we conducted a qualitative case study of one particularly challenging syntactic phenomenon: prepositional phrase (PP) attachment. PP attachment has long been a source of ambiguity in syntactic parsing, and LLMs are known to struggle with it, especially in zero-shot settings.
@@ -25,3 +29,24 @@ ChatGPT responded with an explanation that correctly identified the ambiguity an
 
 This qualitative result suggests that while ChatGPT does not reliably produce the correct parse in structurally ambiguous sentences, it is capable of *describing* the ambiguity and articulating the competing interpretations. This supports the idea that LLMs have access to latent syntactic representations and world knowledge that can be activated in interactive settings, even when they fail to apply that knowledge in structured parsing tasks.
 
+\subsubsection{Interpreting Multiple Valid Parses: Evidence of Latent Syntactic Knowledge}
+
+In a pair of related examples, we explored how ChatGPT handles noun phrase structures involving quantifiers and partitive constructions. Interestingly, the model produced two different syntactic analyses across two cases—one aligning with a traditional parser, and one diverging from it—yet both interpretations agreed with our own linguistic judgment. This serves as qualitative evidence that ChatGPT possesses flexible and context-sensitive syntactic intuitions, even when its output varies.
+
+In the first case, we examined the sentence:
+
+\begin{quote}
+    \textit{I really can not even believe some of this content right now.}
+\end{quote}
+
+Here, the parser had incorrectly treated \textit{“some”} as the direct object of \textit{“believe”}, rather than \textit{“content”}, which is the head of the partitive noun phrase \textit{“some of this content”}. ChatGPT's parse reproduced this same error. However, when prompted to reflect on the structure, the model acknowledged that \textit{“content”} is the semantic core of the object, and that \textit{“some”} functions as a quantifier or determiner. Despite the initial parsing error, the model demonstrated an awareness of the correct structural interpretation upon further analysis.
+
+In the second case, we presented the simpler sentence:
+
+\begin{quote}
+    \textit{I believe all content.}
+\end{quote}
+
+Here, both the parser and ChatGPT assigned \textit{“content”} as the direct object and \textit{“all”} as its determiner—an analysis that aligns with canonical syntactic structures and our own judgment.
+
+Taken together, these examples illustrate that ChatGPT is capable of recognizing multiple, contextually valid parses—even when its initial output is imperfect. The fact that the model agreed with the Stanford parser in one case, and disagreed in another, yet aligned with human linguistic reasoning in both, supports the idea that LLMs possess latent syntactic knowledge that is accessible through interaction and contextual prompting.
