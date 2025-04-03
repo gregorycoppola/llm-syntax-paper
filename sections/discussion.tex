@@ -1,21 +1,2 @@
 \label{sec:discussion}
 
-Across all experiments, a consistent picture emerges: large language models such as ChatGPT encode substantial syntactic knowledge, but their greatest strengths lie not in structured prediction per se, but in reasoning, critique, and refinement. Our findings challenge the traditional notion of what a parser is—and suggest that future NLP pipelines may rely less on static trees and more on dynamic, interactive workflows.
-
-\paragraph{From Parsers to Linguistic Agents.}
-Rather than producing globally valid parses in a single pass, ChatGPT excels when treated as a linguistic agent: it can identify errors in existing parses, explain why those errors arise, and iteratively improve upon them through natural language interaction. This capability reflects a shift from generation to evaluation, and from syntax-as-structure to syntax-as-dialogue.
-
-\paragraph{Decomposition Over Generation.}
-The poor performance of ChatGPT in zero-shot full parsing (Section~\ref{sec:initial-experiments}) stands in sharp contrast to its success in decomposed tasks like POS tagging or PP attachment (Sections~\ref{sec:pp-attachment-bulk}--\ref{sec:chatgpt-critic}). This confirms earlier hypotheses that LLMs benefit from explicit prompting and simplified task framing. In contexts where full-parse fidelity is not required, these partial annotations may offer a low-cost, high-reliability alternative to traditional parsers.
-
-\paragraph{Agentic Parsing as a New Paradigm.}
-Our agentic architecture (Section~\ref{sec:agentic-parse-repair}) offers a compelling alternative to both traditional parsing and LLM-based sequence prediction. By looping through critique-and-revise cycles, ChatGPT was able to substantially improve Stanford parses without access to gold data. This approach leverages the model's natural strengths—reasoning, coherence, and instruction-following—while sidestepping its structural limitations.
-
-\paragraph{Reimagining Annotation Workflows.}
-LLMs also open up new possibilities for hybrid annotation pipelines. Just as crowdsourcing revolutionized dataset construction in the 2010s, LLMs now offer an on-demand, semi-automated alternative. But the lessons of crowdsourcing still apply: quality requires curation, prompting matters, and human verification remains essential. In this sense, LLMs are not a replacement for human annotators, but a powerful tool for augmenting their work.
-
-\paragraph{Toward Structure-Aware LLMs.}
-Despite these advances, current LLMs still lack strong guarantees of structural validity. As we saw in zero-shot parsing and complex attachment cases, they often produce fluent but ill-formed outputs. Ongoing work in retrieval-augmented generation, neuro-symbolic reasoning, and constrained decoding points the way forward: hybrid systems that combine LLM fluency with external structure may offer the best of both worlds.
-
-\paragraph{Conclusion.}
-Taken together, our results highlight a promising new direction for syntactic annotation in the LLM era. While large models may not replace structured parsers in all settings, they offer new affordances for evaluation, refinement, and collaborative annotation—shifting the focus from static syntax to interactive linguistic intelligence.
