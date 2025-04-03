@@ -37,6 +37,13 @@ Historically, this would mean training a parser on labeled data.
 But, labeled data is expensive, so we want to show that we can actually get the {\em large language model} to annotate this data.
 
 Thus, our desire is to show that a large language model {\em can} actually act as a very cheap {\em linguist}.
+If that is the case, then it should be possible to make the decisions necessary in order to get syntactic parses for everything in a document.
+And, then it should be possible to get semantic parses (logical forms) for every sentence in a document.
+
+Thus, the entire question of whether or not we can make logical forms using large language models boils down to one question: is it possible for large language models to act as ``syntactic annotation labelers.''
+
+In this document, we will show that the answer is ``yes.''
+
 \subsection{Findings}
 The central contribution of this work is to provide concrete evidence that:
 \begin{enumerate}
