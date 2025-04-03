@@ -37,3 +37,21 @@ The new results we provide are:
     \item we show that a large language model has differences from the CoNLL phrase-structure that might motivate a moving away from that
     \item we show early signals that a large language model can actually act as a basic phrase structure parser
 \end{itemize}
+
+So, relative to past work on the topic of llm's acting as linguists, we have focused specifically on the question of how it can do something {\em like} the CoNLL framework.
+
+With the prepositional phrase attachment experiments, we showed that it was in fact better for out-of-domain parsing than that was.
+
+But, on the other hand, we also showed that in some cases, the natural inclination of the LLM might be to {\em conflict} with the CoNLL parser, and we saw this in the case of part-of-speech tags.
+
+This caused us to look into ways to expand this to a novel parser.
+
+The first way we considered was simply to ask it about CoNLL parses.
+
+We found that the use of CoNLL parse trees actually seemed to {\em confuse} the large language models.
+
+We hypothesized that perhaps this is because the large language model is {\em more used} to ``talking like a linguist''--in handling speech more similar to traditional linguistics.
+
+We hypothesized that the llm might actually be getting {\em confused} by the CoNLL formulation.
+
+Thus our strategy is to ask it questions in a more natural way.
