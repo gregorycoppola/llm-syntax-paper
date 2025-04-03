@@ -8,6 +8,22 @@ This pertains to reasoning.
 The reasoning abilities of large language models are very low.
 A single llm is limited by well-known reasons as to why it is not Turing Complete (TODO: cite).
 
+LLM's with Chain-of-Thought, including with RL, the situation is a bit better, in the sense that there is perhaps no definite {\em computational} reason why the ``chain of thought'' process would not work.
+
+However, there are practical problems when it comes to making a ``verifiable'' reward function for a lot of domains.
+Also, it is not inherently interpretable.
+Also, it is not inherently ``type safe'' like real logic is.
+
+We believe that a fully probabilistic but also fully logical solution to the problem will create the best situation going forward.
+This is why we want to get the logical forms for sentences.
+
+But, to get the logical form for all sentences, that would require a {\em semantic} analysis of a surface form sentence.
+
+In other words, we would have to make statistical decisions in order to translate the surface utterance to the ``logical form''.
+
+This is something that has been done before by Liang et al.
+And, by Steedman et al.
+And, we are kind of following in that vein.
 
 \subsection{Findings}
 The central contribution of this work is to provide concrete evidence that:
