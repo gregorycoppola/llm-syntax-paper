@@ -1,9 +1,14 @@
 \label{sec:conclusion}
 
-This work offers a systematic investigation into how large language models, particularly ChatGPT, can engage with syntactic structure across a range of tasks—from full parsing and POS tagging to critique, disambiguation, and interactive repair. Our findings reveal a consistent pattern: while LLMs struggle to produce fully structured outputs in end-to-end parsing settings, they excel at recognizing, describing, and correcting syntactic phenomena when prompted appropriately.
+Our conclusion is that large language models {\em can} in fact act as linguists for syntactic annotations.
 
-These results suggest that the syntactic competence of LLMs is real but latent: it is more readily accessed through interactive or decomposed tasks than through monolithic generation. By leveraging this competence in hybrid workflows—combining traditional parsers, LLMs, and human oversight—we can build systems that are not only more accurate but also more interpretable and adaptable.
+We have investigated specifically capabilities in the area of syntactic parsing.
 
-Moreover, our agentic architecture for parse refinement opens new possibilities for language model interaction with structured data. Rather than treating structure as a fixed output format, we can frame syntactic analysis as an iterative, dialogic process in which models serve as collaborators in refinement rather than sole producers of structure.
+We are specifically interested in whether large language models can be used to create syntactic-semantic annotations to the level that {\em all} natural language sentences can be translated effectively into a representation approximating {\em first-order logic}.
 
-As large language models continue to evolve, we believe their role in linguistic annotation will shift from parser to partner—supporting new workflows that blend reasoning, structure, and interactivity. This study lays the groundwork for that shift and offers tools and insights for realizing it in practice.
+We specifically are interested in whether it is possible to take an {\em agentic} approach to the {\em annotation} of the latent syntactic-semantic structure of a sentence. The characteristics of the overall approach we are investigating are:
+\begin{itemize}
+    \item {\bf agentic} -- in the modern terminology, we can say that we are pursuing a strategy that is ``agentic''--in other words, we are willing to try {\em multiple times} to get annotations for the sentences that we want--we are not limited to ``zero shot''
+    \item {\bf divide-and-conquer} -- this is a more traditional way of referring to it, but we can say that we are willing to break a sentence into ``parts''
+    \item {\bf representation-agnostic} -- we are willing to use traditional resources like the CoNLL dependency treebank where this can help -- but, because we do not view this as ``gold'' inherently, but instead because the goal is to put the representations into the Bayesian Network described in \cite{coppola2024}--we are open to letting the {\em large language model} determine its own structure
+\end{itemize}
