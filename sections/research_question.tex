@@ -25,6 +25,17 @@ This is something that has been done before by Liang et al.
 And, by Steedman et al.
 And, we are kind of following in that vein.
 
+We adopt the view that ``syntax'' is the {\em process} of translating from a {\em surface form utterance} to a {\em logical form}, which is in some close relative of {\em first-order logic}.
+
+Thus, the {\em semanics}, in this terminology, is the first-order logical form.
+And, the {\em syntax} is the set of structural changes that we have to make on the way to getting there.
+
+In any event, no matter how one divides the matter semantically, the underlying fact is that, in order to translate from surface level form to logical form, many {\em decisions} must be made.
+In the machine learning paradigm, this would mean that many {\em statistical} decisions need to be made.
+
+Historically, this would mean training a parser on labeled data.
+But, labeled data is expensive, so we want to show that we can actually get the {\em large language model} to annotate this data.
+
 \subsection{Findings}
 The central contribution of this work is to provide concrete evidence that:
 \begin{enumerate}
