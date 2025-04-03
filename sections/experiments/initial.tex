@@ -1,10 +1,11 @@
 \subsection{Initial Experiments}
 \label{subsec:initial-experiments}
 
-We began our study by evaluating the capacity of ChatGPT to produce syntactic annotations under minimal prompting, without any fine-tuning or examples. These initial experiments aimed to assess whether a general-purpose language model can act as a zero-shot dependency parser, and whether decomposing the task into simpler subcomponents might yield more reliable results.
+We begin by verifying the difficulties already reported in the literature (TODO) in using a large language model as a ``zero-shot parser.''
+And, then whether the task of general parsing can be broken down into subtasks, by asking specifically for the POS tags, unlabeled arcs, or labels for unlabeled arc.
 
-\paragraph{Zero-Shot Full Parsing.}
-In the first setting, we prompted ChatGPT to provide a full dependency parse of a sentence—including POS tags, head indices, and dependency labels—all in a single response. The model was given no prior examples or schema, just a brief natural language instruction (e.g., “Provide a dependency parse of this sentence”). Table~\ref{tab:zeroshot} summarizes the model’s performance in this setting, using standard metrics: unlabeled attachment score (UAS), labeled attachment score (LAS), and POS tag accuracy.
+\paragraph{Zero-Shot Full Parsing}
+We begin by verifying previous results that LLM's can {\em not} act as zero-shot parsers by replicating the experiment with $25$ sample sentences and asking, for each sentence, to simply ``output the CoNLL-U depdnecy parses for this sentence.'' We find that accuracies are low on this task.
 
 \begin{table}[h]
 \centering
@@ -22,7 +23,7 @@ Stanford Parser (gold seg, gold POS) & 91.3 & 88.6 & 97.8 \\
 
 Although ChatGPT achieved reasonable POS tagging accuracy within the full parsing prompt, its syntactic predictions were far from coherent. The resulting parses frequently violated tree constraints, showed inconsistent head assignments, and produced implausible dependency labels.
 
-\paragraph{Decomposed Subtasks.}
+\paragraph{Decomposed Subtasks}
 We next tested whether the same model would perform better when the syntactic annotation task was broken down into simpler steps. Specifically, we asked the model to perform: (1) POS tagging word-by-word; (2) head prediction, given each word in isolation; and (3) dependency label prediction, given a word and its gold-standard head. Table~\ref{tab:subtasks} presents results for each of these subtasks, again in comparison with the Stanford dependency parser as a baseline.
 
 \begin{table}[h]
