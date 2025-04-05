@@ -1,14 +1,5 @@
 \label{sec:conclusion}
+We have shown through a mix of past evidence and new results that large language models {\em can} in fact act reliably as linguists, especially with regards to the kinds of syntactic labeling tasks that would be required to do open-domain semantic parsing.
 
-Our conclusion is that large language models {\em can} in fact act as linguists for syntactic annotations.
+We have specifically shown that for the specific difficult case of {\em prepositional phrase attachment}, that a ``zero shot'' LLM performance is comparable to that of a human, and far beyond that of the Stanford Stanza parser, which we take to be a representation of the state-of-the-art.
 
-We have investigated specifically capabilities in the area of syntactic parsing.
-
-We are specifically interested in whether large language models can be used to create syntactic-semantic annotations to the level that {\em all} natural language sentences can be translated effectively into a representation approximating {\em first-order logic}.
-
-We specifically are interested in whether it is possible to take an {\em agentic} approach to the {\em annotation} of the latent syntactic-semantic structure of a sentence. The characteristics of the overall approach we are investigating are:
-\begin{itemize}
-    \item {\bf agentic} -- in the modern terminology, we can say that we are pursuing a strategy that is ``agentic''--in other words, we are willing to try {\em multiple times} to get annotations for the sentences that we want--we are not limited to ``zero shot''
-    \item {\bf divide-and-conquer} -- this is a more traditional way of referring to it, but we can say that we are willing to break a sentence into ``parts''
-    \item {\bf representation-agnostic} -- we are willing to use traditional resources like the CoNLL dependency treebank where this can help -- but, because we do not view this as ``gold'' inherently, but instead because the goal is to put the representations into the Bayesian Network described in \cite{coppola2024}--we are open to letting the {\em large language model} determine its own structure
-\end{itemize}
