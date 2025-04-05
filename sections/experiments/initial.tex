@@ -42,6 +42,3 @@ Dependency label (gold heads) & 31.8 & 88.6 \\
 \end{table}
 
 This decomposition yielded significantly better results than the zero-shot parsing setup, especially for POS tagging, which remained ChatGPT’s strongest syntactic capability. While head prediction and dependency label classification still fell well short of the baseline, performance improved substantially compared to the end-to-end parse.
-
-\paragraph{Implications for LLM-Based Syntax.}
-Together, these results illustrate that LLMs like ChatGPT encode useful local syntactic cues and can perform reasonably well on simple classification tasks such as POS tagging. However, they lack the inductive bias or structural constraints necessary for producing globally consistent syntactic analyses. As such, they cannot reliably function as dependency parsers in a zero-shot fashion, even when prompted in structured ways. These findings are consistent with prior work on LLM-based parsing \cite{kulmizev2022lmparse, muller2023syntax}, and suggest that instruction prompting alone is insufficient for full syntactic annotation—though it may still be useful for extracting partial information in downstream applications.
