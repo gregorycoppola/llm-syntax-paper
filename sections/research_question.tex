@@ -10,3 +10,25 @@ The thesis of all of this work is that LLM's can {\em automate} complex workflow
 
 Get that quote from Isenberg? What to put here?
 
+But, there are limitations at the same time.
+
+Large language models have well-known problems with {\em reasoning}.
+
+Reasoning is not exact with them.
+
+Reasoning is a mess.
+
+Chain-of-Thought is not a well-defined concept.
+
+Extending this with Reinforcement Learning has helped but also had limitations.
+For one thing, you need a ``verifiable'' reward function.
+This only works inherently in one way to start.
+They are working on finding another way called ``generative reward models.''
+That is actually what I proposed.
+In that case, we can try another approach: which is to just do the entire {\em generative} model as a discrete logical model.
+
+This requires {\em translating} the representation space.
+The basic {\em representation space} of a LLM is the {\em token}.
+We propose that the basic {\em unit} of modeling {\em reasoning} should be the {\em thought}---though the question then becomes how to define the {\em thought}.
+
+We further propose for this that the way to represent a {\em thought} is as a sentence written in a {\em formal logic}, which is to say either {\em first-order logic}, or some close derivative of that.
