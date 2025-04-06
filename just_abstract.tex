@@ -13,8 +13,8 @@
 \begin{abstract}
 This paper presents we believe a novel research question: can \emph{large language models} act as \emph{linguists} so as to facilitate \emph{open-domain semantic parsing}?
 Open-domain semantic parsing would allow a new kind of information retrieval based on \emph{logical proofs}, and would be very valuable but has historically been rate-limited by the cost and reliability of \emph{human syntactic annotations}.
-We present a careful review of past results that shows that LLMs \emph{can} reliably annotate syntactic annotations, but that this ability is highly dependent on the \emph{prompt}.
-We analyze past findings that LLMs can \emph{not} act as zero-shot CoNLL dependency parsers, and present a novel analysis as to why based on the complexity of dependency parsing.
+We present a careful review of past results---as well as important {\em new} results---that together show that LLMs \emph{can} reliably annotate syntactic annotations, but that this ability is highly dependent on the choice of \emph{prompt}.
+We analyze past findings that LLMs can \emph{not} act as zero-shot CoNLL dependency parsers, and present a novel analysis as to why based on the computational complexity of dependency parsing.
 We present several positive novel experimental results showing further that LLMs \emph{can} act reliably as linguists, especially in tasks that are closely related to \emph{semantic parsing}.
 We believe that in several cases this is human-level performance on these tasks.
 We propose that these results suggest that full open-domain semantic parsing should be possible, given the right \emph{agentic} control flow---aka. sequence of calls to LLMs and other tools---thus unlocking a new kind of \emph{logical} information retrieval.
