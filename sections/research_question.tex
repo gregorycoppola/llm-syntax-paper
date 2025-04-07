@@ -1,31 +1,10 @@
 \label{sec:contributions}
-\subsection{Popularity of LLM's}
-This paper is motivated by both the potential and the limits of {\em large language models} (LLM's).
-On the one hand, LLM's have transformed many aspects of the field of computer science and the industry.
-Many new kinds of workflows are being automated using {\em agentic} strategies.
-The thesis of all of this work is that LLM's can {\em automate} complex workflows.
-But, there are limitations at the same time.
+This work is motivated by the current state of the field roughly five years after the introduction of {\em large language models}.
 
-\subsection{Limits of LLM's}
-Large language models have well-known problems with {\em reasoning}.
-Reasoning is not exact with them.
-Reasoning is a mess.
-Chain-of-Thought is not a well-defined concept.
+On the one hand, large language models have allowed a great variety of powerful new uses cases, and have completely transformed all aspects of the computer science {\em industry}, for all company sizes and fields.
 
-Extending this with Reinforcement Learning has helped but also had limitations.
-For one thing, you need a ``verifiable'' reward function.
-This only works inherently in one way to start.
-They are working on finding another way called ``generative reward models.''
-That is actually what I proposed.
-In that case, we can try another approach: which is to just do the entire {\em generative} model as a discrete logical model.
+On the other hand, it is clear that the LLM {\em by itself} is {\em not} equivalent to {\em artificial general intelligence} no matter how defined. (TODO: cite something)
 
-This requires {\em translating} the representation space.
-The basic {\em representation space} of a LLM is the {\em token}.
-We propose that the basic {\em unit} of modeling {\em reasoning} should be the {\em thought}---though the question then becomes how to define the {\em thought}.
+TODO: vibe coding tweet
 
-We further propose for this that the way to represent a {\em thought} is as a sentence written in a {\em formal logic}, which is to say either {\em first-order logic}, or some close derivative of that.
-Just in general, we can definitely have more {\em reliable} logical reasoning and inference if this is done in a symbolic space, as this isn not just more {\em interpretable}---to allow debugging and testing of the reasoning process---but also allows us to {\em specificy} rules.
-
-In some ways, these are arguably two {\em sides of the same coin}---humans can {\em interpret} that which is {\em discrete}---because only when things are {\em categorized} can we form rules about them.
-
-\subsection{Leveraging LLM's for Semantic Parsing}
+TODO: tweet that says, "but we believe llm's can be the game changer, as we will see..."
