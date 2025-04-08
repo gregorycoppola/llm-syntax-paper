@@ -1,10 +1,16 @@
 \label{sec:contributions}
-This work is motivated by the current state of the field roughly five years after the introduction of {\em large language models}.
+\subsection{Popularity of LLMs}
 
-On the one hand, large language models have allowed a great variety of powerful new uses cases, and have completely transformed all aspects of the computer science {\em industry}, for all company sizes and fields.
+This work is motivated by both the transformative potential and the inherent limitations of {\em large language models} (LLMs). On the one hand, LLMs have reshaped the landscape of computer science and industry, enabling the automation of complex workflows through {\em agentic} strategies. A central thesis emerging from this wave of research is that LLMs can serve as general-purpose engines for {\em automating} sophisticated, multi-step tasks. However, despite these advances, significant limitations remain.
 
-On the other hand, it is clear that the LLM {\em by itself} is {\em not} equivalent to {\em artificial general intelligence} no matter how defined. (TODO: cite something)
+\subsection{Limits of LLMs}
 
-TODO: vibe coding tweet
+A well-known weakness of LLMs lies in their ability to perform {\em reasoning}. While models may appear to reason effectively, their process is inherently imprecise and unreliable. Techniques such as {\em chain-of-thought prompting} have offered some improvements, but the concept itself remains poorly defined and lacks formal grounding.
 
-TODO: tweet that says, "but we believe llm's can be the game changer, as we will see..."
+Extensions involving reinforcement learning (RL) have addressed some of these shortcomings, but they too encounter fundamental barriers. In particular, RL depends on the existence of a {\em verifiable} reward function—an assumption that is often hard to satisfy in practice. Recent efforts aim to overcome this by developing {\em generative reward models}, a direction we take inspiration from and build upon.
+
+Our proposal is to rethink the foundation of reasoning in LLMs by shifting from token-based representations to more structured and discrete symbolic forms. Specifically, we suggest that the fundamental unit of reasoning should not be the token, but the {\em thought}—a unit we define as a sentence expressed in a formal logical language, such as {\em first-order logic} or a suitable variant. 
+
+By operating in a symbolic space, reasoning becomes not only more {\em interpretable}—facilitating debugging and transparency—but also more {\em verifiable}, as it enables the specification and enforcement of explicit rules. Symbolic representations provide a discrete structure over which formal reasoning procedures can be defined and trusted.
+
+In this sense, interpretability and formality are two sides of the same coin: humans can interpret that which is discrete and well-categorized, and only when categories exist can rules be meaningfully applied.
